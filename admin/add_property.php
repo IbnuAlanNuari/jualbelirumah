@@ -3,7 +3,7 @@ session_start();
 
 // Cek apakah pengguna sudah login
 if (!isset($_SESSION['username'])) {
-    header("Location: login");
+    header("Location: login.php");
     exit();
 }
 
@@ -121,9 +121,9 @@ if (isset($_GET['edit'])) {
                         style="height: 40px;"> <span class="fs-5">PT MITRA USAHA SYARIAH</span></a>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a href="view_contacts" class="nav-link">Ulasan</a></li>
+                        <li class="nav-item"><a href="view_contacts.php" class="nav-link">Ulasan</a></li>
                         <li class="nav-item"><a href="#tambah" class="nav-link">Tambah Properti</a></li>
-                        <li class="nav-item"><a class="nav-link" href="logout">Logout</a></li>
+                        <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
                     </ul>
                 </div>
             </div>

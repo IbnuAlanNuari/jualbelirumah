@@ -16,7 +16,7 @@
                 <h3>Login Admin</h3>
             </div>
             <div class="card-body">
-                <form action="login" method="post">
+                <form action="login.php" method="post">
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
                         <input type="text" id="username" name="username" class="form-control" required>
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $row = $result->fetch_assoc();
         if (password_verify($password, $row['password'])) {
             $_SESSION['username'] = $username;
-            header("Location: add_property");
+            header("Location: add_property.php");
             exit();
         } else {
             echo "<div class='alert alert-danger text-center'>Password salah!</div>";

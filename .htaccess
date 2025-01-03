@@ -3,6 +3,10 @@ RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+# Menghapus ekstensi .php dari URL
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^/]+)/?$ $1.php [L]
+
 # Mengatur halaman kesalahan kustom
 ErrorDocument 404 /404.html
 

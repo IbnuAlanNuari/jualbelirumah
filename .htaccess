@@ -1,6 +1,19 @@
+# Mengaktifkan mod_rewrite
 RewriteEngine On
-RewriteBase /JualBeliRumah/
-RewriteRule ^index\.php$ index.php [L]
 
-order allow,JualBeliRumah
-JualBeliRumah from all
+# Menetapkan base URL untuk rewrite
+RewriteBase /JualBeliRumah/
+
+# Mengarahkan semua permintaan ke index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L]
+
+# Mengatur halaman kesalahan kustom
+ErrorDocument 404 /404.html
+
+# Mengatur izin akses
+<Directory /JualBeliRumah>
+    Order allow,deny
+    Allow from all
+</Directory>

@@ -29,7 +29,7 @@ $result = $stmt->get_result();
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.php"><img src="assets/images/logo.png" alt="Logo" class="me-2"
+            <a class="navbar-brand" href="index"><img src="assets/images/logo.png" alt="Logo" class="me-2"
                     style="height: 40px;">PT MITRA USAHA SYARIAH</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,10 +37,10 @@ $result = $stmt->get_result();
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="new_property.php" class="nav-link">Property Terbaru</a></li>
-                    <li class="nav-item"><a href="best_property.php" class="nav-link">Properti Terbaik</a></li>
-                    <li class="nav-item"><a href="contact.php" class="nav-link">Kontak</a></li>
+                    <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="new_property" class="nav-link">Property Terbaru</a></li>
+                    <li class="nav-item"><a href="best_property" class="nav-link">Properti Terbaik</a></li>
+                    <li class="nav-item"><a href="contact" class="nav-link">Kontak</a></li>
                 </ul>
             </div>
         </div>

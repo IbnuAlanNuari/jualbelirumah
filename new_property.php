@@ -41,7 +41,7 @@ $result = $conn->query($query);
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
             <div class="container">
                 <!-- Brand dengan Logo -->
-                <a class="navbar-brand d-flex align-items-center" href="new_property.php">
+                <a class="navbar-brand d-flex align-items-center" href="new_property">
                     <img src="assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
                     <span class="fs-5">PT MITRA USAHA SYARIAH</span>
                 </a>
@@ -54,7 +54,7 @@ $result = $conn->query($query);
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a href="index.php" class="nav-link">Home</a>
+                            <a href="index" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="new_property.php" id="navbarDropdown" role="button"
@@ -62,23 +62,23 @@ $result = $conn->query($query);
                                 Kategori
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="new_property.php?category=0">Jual</a></li>
-                                <li><a class="dropdown-item" href="new_property.php?category=1">Sewa</a></li>
-                                <li><a class="dropdown-item" href="new_property.php?category=2">Sold Out</a></li>
-                                <li><a class="dropdown-item" href="new_property.php?category=3">Take Over Jual</a></li>
+                                <li><a class="dropdown-item" href="new_property?category=0">Jual</a></li>
+                                <li><a class="dropdown-item" href="new_property?category=1">Sewa</a></li>
+                                <li><a class="dropdown-item" href="new_property?category=2">Sold Out</a></li>
+                                <li><a class="dropdown-item" href="new_property?category=3">Take Over Jual</a></li>
                             </ul>
 
 
                         </li>
                         <li class="nav-item">
-                            <a href="best_property.php" class="nav-link">Property Terbaik</a>
+                            <a href="best_property" class="nav-link">Property Terbaik</a>
                         </li>
                         <li class="nav-item">
-                            <a href="contact.php" class="nav-link">Kontak</a>
+                            <a href="contact" class="nav-link">Kontak</a>
                         </li>
                     </ul>
                     <!-- Form Pencarian -->
-                    <form class="d-flex ms-3 mt-2 mt-lg-0" action="search_properties.php" method="GET">
+                    <form class="d-flex ms-3 mt-2 mt-lg-0" action="search_properties" method="GET">
                         <input class="form-control me-2" type="search" name="query" placeholder="Cari Properti"
                             aria-label="Search">
                         <button class="btn btn-outline-light" type="submit">Cari</button>

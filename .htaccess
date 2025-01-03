@@ -26,3 +26,8 @@ ErrorDocument 404 /404.html
 # Mencegah hotlinking
 RewriteCond %{HTTP_REFERER} !^$
 RewriteCond %{HTTP_REFERER} !^http://(www\.)?example\.com/ [NC]
+
+# Menghapus ekstensi .php dari URL tanpa menampilkan file .php di URL
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^/]+)/?$ $1.php [L]

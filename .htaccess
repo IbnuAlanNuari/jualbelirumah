@@ -1,3 +1,6 @@
 RewriteEngine On
 RewriteBase /JualBeliRumah/
 RewriteRule ^index\.php$ index.php [L]
+
+order allow,JualBeliRumah
+JualBeliRumah from all

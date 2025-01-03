@@ -1,19 +1,24 @@
-# Mengaktifkan mod_rewrite
+# Mengalihkan semua permintaan HTTP ke HTTPS
 RewriteEngine On
-
-# Menetapkan base URL untuk rewrite
-RewriteBase /JualBeliRumah/
-
-# Mengarahkan semua permintaan ke index.php
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php [L]
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Mengatur halaman kesalahan kustom
 ErrorDocument 404 /404.html
 
-# Mengatur izin akses
-<Directory /JualBeliRumah>
-    Order allow,deny
-    Allow from all
-</Directory>
+# Mengaktifkan caching untuk file statis
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+</IfModule>
+
+# Mencegah hotlinking
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?example\.com/ [NC]

@@ -1,0 +1,288 @@
+/* Gaya Umum untuk Semua Halaman */
+
+.body {
+    background-color: #f4f7fc;
+    font-family: 'Arial', sans-serif;
+}
+
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #0f1011;
+    color: white;
+    padding: 20px;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.card-body {
+    background-color: white;
+    padding: 30px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 0.875rem;
+    color: #555;
+}
+/* Menambahkan penyesuaian ukuran font untuk Navbar */
+.navbar-brand {
+    font-size: 20px; /* Ukuran font lebih besar pada navbar brand */
+}
+
+/* Gaya Login dan Elemen Lainnya */
+
+/* Form Login Styling */
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar brand Styling */
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Form Field Styling */
+.form-control:focus {
+    border-color: #6c63ff;
+    box-shadow: 0 0 8px rgba(108, 99, 255, 0.4);
+}
+
+/* Button Styling */
+.btn-login {
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+}
+
+.btn-login:hover {
+    background-color: #5a54e0;
+}
+
+/* Alert Styling */
+.alert {
+    display: none;
+}
+
+/* Kontak - Gaya untuk Halaman Kontak Kami */
+
+/* Informasi Kontak */
+.contact-info {
+    font-size: 18px;
+}
+
+.contact-info a {
+    color: #25D366; /* Warna WhatsApp */
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Ikon Sosial Media */
+.social-icons a {
+    margin: 0 10px;
+    color: #25D366;
+    font-size: 24px;
+}
+
+.social-icons a:hover {
+    color: #128C7E;
+}
+
+/* Formulir Kontak */
+.contact-us form .form-control {
+    margin-bottom: 15px;
+}
+
+.contact-us form button {
+    background-color: #29eb80;
+    color: white;
+    border: none;
+}
+
+.contact-us form button:hover {
+    background-color: #21b966;
+}
+
+/* Carousel Controls */
+.carousel-control-prev-icon, 
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Warna latar belakang tombol */
+    border-radius: 50%; /* Membuat tombol menjadi lingkaran */
+    width: 40px;
+    height: 40px;
+}
+
+.carousel-control-prev-icon::after {
+    content: '\2039'; /* Panah kiri */
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+}
+
+.carousel-control-next-icon::after {
+    content: '\203A'; /* Panah kanan */
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Tambahkan hover efek */
+.carousel-control-prev-icon:hover, 
+.carousel-control-next-icon:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Warna lebih gelap saat hover */
+    transition: background-color 0.3s ease;
+}
+
+/* Navbar Styles */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1050; /* Sesuaikan nilai z-index sesuai kebutuhan */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Opsional untuk efek bayangan */
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: center; /* Pusatkan elemen di tengah secara horizontal */
+    align-items: center; /* Pusatkan elemen di tengah secara vertikal */
+}
+
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-nav {
+    display: flex;
+    gap: 20px; /* Jarak antar menu */
+    margin-left: auto; /* Dorong menu ke samping kanan */
+    position: relative;
+    text-align: center;
+}
+
+.navbar-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.navbar-nav a:hover {
+    color: #ffff00; /* Warna kuning saat hover */
+}
+
+
+
+/* Responsiveness */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Navbar berubah vertikal pada layar kecil */
+        align-items: flex-start; /* Konten rata kiri */
+    }
+
+    .navbar-nav {
+        flex-direction: column; /* Menu vertikal */
+        margin-left: 0;
+        gap: 10px;
+    }
+}
+/* Mengatur ukuran gambar di dalam tabel */
+.table img {
+    width: 40px;  /* Atur lebar gambar sesuai kebutuhan */
+    height: auto; /* Menjaga rasio aspek gambar agar tetap proporsional */
+}
+/* Optional styling to adjust the search form position */
+.navbar .form-control {
+    width: 200px; /* Atur lebar kotak pencarian */
+}
+
+/* Search Form Styles */
+.searchForm {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Jarak antara input dan tombol */
+    margin-left: auto; /* Tempatkan form di sisi kanan */
+}
+
+.searchQuery {
+    width: 150px; /* Ukuran input lebih kecil */
+    height: 30px; /* Tinggi input lebih kecil */
+    font-size: 0.85rem; /* Ukuran font lebih kecil */
+    padding: 2px 8px; /* Padding lebih kecil */
+}
+
+.searchForm button {
+    height: 30px; /* Tinggi tombol sesuai dengan input */
+    font-size: 0.85rem; /* Ukuran font lebih kecil */
+    padding: 0 10px; /* Padding horizontal */
+    background-color: transparent; /* Warna latar sesuai style navbar */
+    border: 1px solid white; /* Warna border */
+    color: white; /* Warna teks */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.searchForm button:hover {
+    background-color: white; /* Warna latar saat hover */
+    color: #000; /* Warna teks saat hover */
+}
+
+.property-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.property-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.property-container img {
+    max-width: 200px;
+    max-height: 150px;
+}
+.property-description {
+    text-align: center;
+    margin-top: 10px;
+}
+.property-description h5 {
+    font-size: 1.25rem;
+}

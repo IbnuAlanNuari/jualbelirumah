@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteBase /JualBeliRumah/
+RewriteRule ^index\.php$ index.php [L]

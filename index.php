@@ -23,7 +23,7 @@ $result_best = $conn->query($sql_best);
 </head>
 
 <body>
-    <header>
+<header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
             <div class="container">
                 <!-- Brand dengan Logo -->
@@ -49,18 +49,15 @@ $result_best = $conn->query($sql_best);
                                 <li><a class="dropdown-item" href="new_property">Property Terbaru</a></li>
                                 <li><a class="dropdown-item" href="best_property">Property Terbaik</a></li>
                             </ul>
-                        </li>
-                        <li class="nav-item"><a href="#about-us" class="nav-link">Tentang Kami</a></li>
-                        <li class="nav-item"><a href="contact.php" class="nav-link">Kontak</a></li>
+                        </li <li class="nav-item"><a href="#about-us" class="nav-link">Tentang Kami</a></li>
+                        <li class="nav-item"><a href="contact" class="nav-link">Kontak</a></li>
                         <li class="nav-item"><a href="admin/login" target="_blank" class="nav-link">Admin</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-
-
-
+    
     <!-- Hero Section -->
     <section class="hero-section d-flex align-items-center" style="height: 100vh; background-color: #f8f9fa;">
         <div class="container">

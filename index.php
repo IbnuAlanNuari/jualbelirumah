@@ -51,7 +51,7 @@ $result_best = $conn->query($sql_best);
                             </ul>
                         </li class="nav-item"><a href="#about-us" class="nav-link">Tentang Kami</a></class=>
                         <li class="nav-item"><a href="contact" class="nav-link">Kontak</a></li>
-                        <li class="nav-item"><a href="admin/login" target="_blank" class="nav-link">Admin</a></li>
+                        <li class="nav-item"><a href="admin/login.php" target="_blank" class="nav-link">Admin</a></li>
                     </ul>
                 </div>
             </div>

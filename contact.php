@@ -58,7 +58,7 @@
 
                     <h4 class="mt-4">WhatsApp Kami</h4>
                     <p class="contact-info">
-                        <a href="https://wa.me/089665550003 " target="_blank">
+                        <a href="https://wa.me/089665550003" target="_blank">
                             Klik untuk Chat di WhatsApp <i class="bi bi-whatsapp"></i>
                         </a>
                     </p>

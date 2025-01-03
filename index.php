@@ -27,7 +27,7 @@ $result_best = $conn->query($sql_best);
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
             <div class="container">
                 <!-- Brand dengan Logo -->
-                <a class="navbar-brand d-flex align-items-center" href="index.php">
+                <a class="navbar-brand d-flex align-items-center" href="index">
                     <img src="assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
                     <span class="fs-5">PT MITRA USAHA SYARIAH</span>
                 </a>
@@ -39,20 +39,20 @@ $result_best = $conn->query($sql_best);
                 <!-- Menu Navbar -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#properties" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Property
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="new_property.php">Property Terbaru</a></li>
-                                <li><a class="dropdown-item" href="best_property.php">Property Terbaik</a></li>
+                                <li><a class="dropdown-item" href="new_property">Property Terbaru</a></li>
+                                <li><a class="dropdown-item" href="best_property">Property Terbaik</a></li>
                             </ul>
                         </li>
                         <li class="nav-item"><a href="#about-us" class="nav-link">Tentang Kami</a></li>
                         <li class="nav-item"><a href="contact.php" class="nav-link">Kontak</a></li>
-                        <li class="nav-item"><a href="admin/login.php" target="_blank" class="nav-link">Admin</a></li>
+                        <li class="nav-item"><a href="admin/login" target="_blank" class="nav-link">Admin</a></li>
                     </ul>
                 </div>
             </div>

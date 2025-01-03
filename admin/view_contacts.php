@@ -35,13 +35,13 @@ $result = $conn->query($sql);
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100 top-0">
             <div class="container">
-                <a class="navbar-brand" href="add_property.php"> <img src="../assets/images/logo.png" alt="Logo"
+                <a class="navbar-brand" href="add_property"> <img src="../assets/images/logo.png" alt="Logo"
                         class="me-2" style="height: 40px;">
                     <span class="fs-5">PT PT MITRA USAHA SYARIAH</span></a>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a href="add_property.php" class="nav-link">Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
+                        <li class="nav-item"><a href="add_property" class="nav-link">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="logout">Logout</a></li>
                     </ul>
                 </div>
             </div>

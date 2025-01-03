@@ -172,7 +172,7 @@ $result = $conn->query($query);
     } else {
         echo "<div class='text-center'>";
         echo "<p>Tidak ada properti yang tersedia.</p>";
-        echo "<a href='best_property.php' class='btn btn-primary'>Kembali</a>"; // Tombol kembali
+        echo "<a href='news_property.php' class='btn btn-primary'>Kembali</a>"; // Tombol kembali
         echo "</div>";
     }
     

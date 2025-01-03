@@ -3,7 +3,7 @@
 $host = 'localhost';  // Ganti dengan host database, biasanya 'localhost'
 $username = 'root';   // Ganti dengan username database
 $password = '';       // Ganti dengan password database (kosong untuk XAMPP)
-$dbname = 'properties'; // Nama database yang digunakan
+$dbname = 'u772674178_properties'; // Nama database yang digunakan
 
 // Membuat koneksi ke database
 $conn = new mysqli($host, $username, $password, $dbname);

@@ -24,9 +24,9 @@ $result = $conn->query($sql);
 <html lang="id">
 
 <head>
-    <meta charset="UTF-8">
+    <meta meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pesan Kontak - Admin</title>
+    <title>Dashboard - PT MITRA USAHA SYARIAH</title>
     <link rel="icon" href="../assets/images/logo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
@@ -34,11 +34,19 @@ $result = $conn->query($sql);
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100 top-0">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100 top-0">
             <div class="container">
-                <a class="navbar-brand" href="add_property.php"> <img src="../assets/images/logo.png" alt="Logo"
-                        class="me-2" style="height: 40px;">
-                    <span class="fs-5">PT PT MITRA USAHA SYARIAH</span></a>
+                <!-- Brand Logo -->
+                <a class="navbar-brand" href="#">
+                    <img src="../assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
+                    <span class="fs-5">PT MITRA USAHA SYARIAH</span>
+                </a>
+                <!-- Navbar Toggle Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Navbar Links -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a href="add_property.php" class="nav-link">Dashboard</a></li>
@@ -47,7 +55,6 @@ $result = $conn->query($sql);
                 </div>
             </div>
         </nav>
-
         <div class="container py-5 mt-5">
             <h2>Pesan Kontak</h2>
             <table class="table table-striped">

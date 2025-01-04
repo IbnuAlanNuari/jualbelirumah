@@ -51,14 +51,14 @@
                     <h4>Hubungi Kami</h4>
                     <p class="contact-info">
                         <strong>Email:</strong> <a href="mailto:ptmitrausahasyariah@gmail.com">ptmitrausahasyariah@gmail.com</a><br>
-                        <strong>Telepon:</strong> <a href="tel:089665550003">089665550003</a><br>
+                        <strong>Telepon:</strong> <a href="tel:+6289665550003">089665550003</a><br>
                         <strong>Alamat:</strong> Link Ciore Kwiste RT/RW 004/003 Kelurahan
                         Gerogol Kecamatan Gerogol Kota Cilegon
                     </p>
 
                     <h4 class="mt-4">WhatsApp Kami</h4>
                     <p class="contact-info">
-                        <a href="https://wa.me/089665550003" target="_blank">
+                        <a href="https://wa.me/+6289665550003" target="_blank">
                             Klik untuk Chat di WhatsApp <i class="bi bi-whatsapp"></i>
                         </a>
                     </p>

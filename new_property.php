@@ -37,12 +37,11 @@ $result = $conn->query($query);
 </head>
 
 <body>
-
-    <header>
+    <header class="bg-dark text-white text-center py-3">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
             <div class="container">
-                <!-- Brand dengan Logo -->
-                <a class="navbar-brand d-flex align-items-center" href="new_property">
+                <!-- Logo dan Brand -->
+                <a class="navbar-brand d-flex align-items-center" href="best_property">
                     <img src="assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
                     <span class="fs-5">PT MITRA USAHA SYARIAH</span>
                 </a>
@@ -54,12 +53,10 @@ $result = $conn->query($query);
                 <!-- Menu Navbar -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a href="index" class="nav-link">Home</a>
-                        </li>
+                        <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="new_property.php" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="new_property.php" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Kategori
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -68,18 +65,14 @@ $result = $conn->query($query);
                                 <li><a class="dropdown-item" href="new_property?category=2">Sold Out</a></li>
                                 <li><a class="dropdown-item" href="new_property?category=3">Take Over Jual</a></li>
                             </ul>
-
-
                         </li>
                         <li class="nav-item">
                             <a href="best_property" class="nav-link">Property Terbaik</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="contact" class="nav-link">Kontak</a>
-                        </li>
+                        <li class="nav-item"><a href="contact" class="nav-link">Kontak</a></li>
                     </ul>
                     <!-- Form Pencarian -->
-                    <form class="d-flex ms-3 mt-2 mt-lg-0" action="search_properties" method="GET">
+                    <form class="d-flex ms-lg-3 mt-2 mt-lg-0" action="search_properties" method="GET">
                         <input class="form-control me-2" type="search" name="query" placeholder="Cari Properti"
                             aria-label="Search">
                         <button class="btn btn-outline-light" type="submit">Cari</button>
@@ -88,8 +81,7 @@ $result = $conn->query($query);
             </div>
         </nav>
     </header>
-
-
+  
     <div class="container py-5 mt-5" style="margin-top: 7rem;">
         <h2 class="text-center mb-4">Properti Terbaru</h2>
 
@@ -180,7 +172,7 @@ $result = $conn->query($query);
         ?>
         </div>
 
-       
+
     </div>
 
     <!-- Masukkan Bootstrap JS jika diperlukan -->

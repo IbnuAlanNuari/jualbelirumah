@@ -34,15 +34,6 @@ $result = $conn->query($query);
     <!-- Masukkan Bootstrap CSS jika diperlukan -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <style>/* Untuk layar dengan lebar maksimum 768px (misalnya ponsel) */
-        @media (max-width: 768px) {
-        .card {
-            margin-bottom: 20px; /* Atur jarak antar kartu */
-        }
-        .card-img-top {
-            height: 200px; /* Atur tinggi gambar */
-        }}
-    </style>
 </head>
 
 <body>

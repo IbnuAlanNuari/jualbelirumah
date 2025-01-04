@@ -27,10 +27,9 @@ $result = $conn->query($query);
 <html lang="id">
 
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Properti Terbaru</title>
-    <link rel="icon" href="assets/images/logo.png" type="image/png">
     <!-- Masukkan Bootstrap CSS jika diperlukan -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -38,7 +37,7 @@ $result = $conn->query($query);
 
 <body>
 
-    <header class="bg-dark text-white text-center py-3">
+    <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
             <div class="container">
                 <!-- Brand dengan Logo -->
@@ -58,8 +57,8 @@ $result = $conn->query($query);
                             <a href="index" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="new_property.php" id="navbarDropdown"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="new_property.php" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 Kategori
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -72,10 +71,10 @@ $result = $conn->query($query);
 
                         </li>
                         <li class="nav-item">
-                            <a href="best_property" class="nav-link">Property Terbaik</a>
+                            <a href="best_property.php" class="nav-link">Property Terbaik</a>
                         </li>
                         <li class="nav-item">
-                            <a href="contact" class="nav-link">Kontak</a>
+                            <a href="contact.php" class="nav-link">Kontak</a>
                         </li>
                     </ul>
                     <!-- Form Pencarian -->
@@ -180,7 +179,7 @@ $result = $conn->query($query);
         ?>
         </div>
 
-
+       
     </div>
 
     <!-- Masukkan Bootstrap JS jika diperlukan -->

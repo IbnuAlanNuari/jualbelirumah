@@ -24,7 +24,7 @@ $result = $conn->query($sql);
 <html lang="id">
 
 <head>
-    <meta meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - PT MITRA USAHA SYARIAH</title>
     <link rel="icon" href="../assets/images/logo.png" type="image/png">
@@ -34,7 +34,7 @@ $result = $conn->query($sql);
 
 <body>
     <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100 top-0">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100 top-0">
             <div class="container">
                 <!-- Brand Logo -->
                 <a class="navbar-brand" href="#">

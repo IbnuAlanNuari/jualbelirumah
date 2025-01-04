@@ -106,7 +106,12 @@ if ($result->num_rows > 0) {
         $images = array_slice($images, 0, 2); // Ambil maksimal 2 gambar
 
         // Menampilkan kartu properti
-        echo "<div class='col-md-6 col-sm-6 mb-4'>"; // Bootstrap grid untuk tata letak responsif
+        if ($counter % 2 == 0) {
+            echo "<div class='col-md-6 col-sm-6 mb-4'>"; // Mulai kolom kiri
+        } else {
+            echo "<div class='col-md-6 col-sm-6 mb-4 order-md-last'>"; // Mulai kolom kanan
+        }
+
         echo "<div class='card shadow-sm border-light'>"; // Kartu properti
 
         if (count($images) > 1) {
@@ -163,14 +168,6 @@ if ($result->num_rows > 0) {
         echo "</div>";
 
         $counter++; // Increment counter
-        if ($counter % 2 == 0) {
-            echo "</div><div class='row'>"; // Mulai baris baru setiap 2 kartu
-        }
-    }
-
-    // Menutup row terakhir jika jumlah kartu tidak genap
-    if ($counter % 2 != 0) {
-        echo "</div>";
     }
 
     echo "</div>"; // Tutup row utama

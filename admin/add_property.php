@@ -18,11 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $description = $_POST['property_description'];
     $price = str_replace('.', '', $_POST['property_price']); // Hapus titik dari format input
     $location = $_POST['property_location'];
-    $category = $_POST['property_category'];  // Mengambil kategori dari form
-    $status = $_POST['property_status'];  // Status properti
-    $house_type = $_POST['property_house_type'];  // Tipe rumah
-    $land_area = $_POST['property_land_area'];  // Luas tanah
-    $building_area = $_POST['property_building_area'];  // Luas bangunan
+    $category = $_POST['property_category']; // Mengambil kategori dari form
+    $status = $_POST['property_status']; // Status properti
+    $house_type = $_POST['property_house_type']; // Tipe rumah
+    $land_area = str_replace(',', '.', $_POST['property_land_area']); // Konversi koma ke titik
+    $building_area = str_replace(',', '.', $_POST['property_building_area']); // Konversi koma ke titik
+
 
     // Menyimpan data properti baru ke dalam database
     if (isset($_POST['property_id']) && $_POST['property_id'] != '') {
@@ -36,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $sql = "INSERT INTO properties (title, description, price, location, category, status, house_type, land_area, building_area, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ssdsdssdd", $title, $description, $price, $location, $category, $status, $house_type, $land_area, $building_area);
-        
     }
 
     if ($stmt->execute()) {
@@ -45,22 +45,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $property_id = isset($property_id) ? $property_id : $stmt->insert_id;
             $uploaded_images = [];
             $upload_dir = '../assets/images/';
+
             foreach ($_FILES['property_images']['tmp_name'] as $index => $tmp_name) {
-                $image_name = time() . '_' . $_FILES['property_images']['name'][$index];
-                if (move_uploaded_file($tmp_name, $upload_dir . $image_name)) {
-                    $uploaded_images[] = $image_name;
+                // Validasi file yang diunggah (ukuran, tipe file)
+                $file_size = $_FILES['property_images']['size'][$index];
+                $file_type = mime_content_type($tmp_name);
+                $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];
+
+                if ($file_size > 0 && in_array($file_type, $allowed_types)) {
+                    $image_name = time() . '_' . $index . '_' . $_FILES['property_images']['name'][$index];
+                    if (move_uploaded_file($tmp_name, $upload_dir . $image_name)) {
+                        $uploaded_images[] = $image_name;
+                    }
                 }
             }
 
             if (!empty($uploaded_images)) {
-                // Update properti dengan nama gambar yang baru
+                // Gabungkan nama file dengan koma sebagai pemisah
                 $images = implode(',', $uploaded_images);
+
+                // Update properti dengan nama gambar yang baru
                 $sql_images = "UPDATE properties SET images = ? WHERE id = ?";
                 $stmt_images = $conn->prepare($sql_images);
                 $stmt_images->bind_param("si", $images, $property_id);
                 $stmt_images->execute();
             }
         }
+
         // Redirect ke halaman properti setelah berhasil
         header('Location: add_property.php');
         exit;
@@ -98,9 +109,8 @@ if (isset($_GET['edit'])) {
     $result = $conn->query($sql);
     $property = $result->fetch_assoc();
 }
-
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="id">
@@ -278,17 +288,17 @@ if (isset($_GET['edit'])) {
 
                         <div class="mb-3">
                             <label for="property_land_area" class="form-label">Luas Tanah</label>
-                            <input type="number" id="property_land_area" name="property_land_area" class="form-control"
-                                value="<?php echo isset($property) ? $property['land_area'] : ''; ?>" required step="1">
+                            <input type="text" id="property_land_area" name="property_land_area" class="form-control"
+                                value="<?php echo isset($property) ? $property['land_area'] : ''; ?>" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="property_building_area" class="form-label">Luas Bangunan</label>
-                            <input type="number" id="property_building_area" name="property_building_area"
+                            <input type="text" id="property_building_area" name="property_building_area"
                                 class="form-control"
-                                value="<?php echo isset($property) ? $property['building_area'] : ''; ?>" required
-                                step="1">
+                                value="<?php echo isset($property) ? $property['building_area'] : ''; ?>" required>
                         </div>
+
 
                         <div class="mb-3">
                             <label for="property_price" class="form-label">Harga</label>
@@ -333,6 +343,7 @@ if (isset($_GET['edit'])) {
                             <input type="file" id="property_images" name="property_images[]" class="form-control"
                                 multiple>
                         </div>
+
                         <button type="submit" class="btn btn-success w-100">
                             <?php echo isset($property) ? 'Perbarui Properti' : 'Tambah Properti'; ?>
                         </button>
@@ -354,6 +365,27 @@ if (isset($_GET['edit'])) {
         input.value = new Intl.NumberFormat('id-ID').format(value); // Format ulang
     }
     </script>
-</body>
+    <script>
+    //koma di luas 
+    document.getElementById("propertyForm").addEventListener("submit", function(event) {
+        const landAreaInput = document.getElementById("property_land_area");
+        const buildingAreaInput = document.getElementById("property_building_area");
+
+        // Ganti koma dengan titik untuk mempermudah validasi dan penyimpanan
+        landAreaInput.value = landAreaInput.value.replace(",", ".");
+        buildingAreaInput.value = buildingAreaInput.value.replace(",", ".");
+
+        // Validasi angka
+        const landAreaValue = parseFloat(landAreaInput.value);
+        const buildingAreaValue = parseFloat(buildingAreaInput.value);
+
+        if (isNaN(landAreaValue) || isNaN(buildingAreaValue)) {
+            alert("Luas tanah dan bangunan harus berupa angka yang valid.");
+            event.preventDefault();
+        }
+    });
+    </script>
+
+    </body>
 
 </html>

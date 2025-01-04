@@ -102,7 +102,7 @@ $result = $conn->query($query);
     
             // Menampilkan kartu properti
             echo "<div class='col-md-4 mb-4'>"; // Bootstrap grid untuk tata letak responsif
-            echo "<div class='card'>"; // Kartu properti
+            echo "<div class='card shadow-sm border-light'>"; // Kartu properti
             
             if (count($images) > 1) {
                 echo "<div id='carousel-" . $row['id'] . "' class='carousel slide' data-bs-ride='carousel'>";

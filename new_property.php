@@ -41,7 +41,7 @@ $result = $conn->query($query);
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
             <div class="container">
                 <!-- Logo dan Brand -->
-                <a class="navbar-brand d-flex align-items-center" href="best_property">
+                <a class="navbar-brand d-flex align-items-center" href="new_property">
                     <img src="assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
                     <span class="fs-5">PT MITRA USAHA SYARIAH</span>
                 </a>

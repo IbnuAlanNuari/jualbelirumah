@@ -84,7 +84,7 @@ $result_best = $conn->query($sql_best);
             <!-- Properti Baru -->
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h3 class="btn btn-primary">Properti Baru</h3>
-                <a href="new_property.php" class="btn btn-outline-primary btn-sm">Lihat Semua</a>
+                <a href="new_property" class="btn btn-outline-primary btn-sm">Lihat Semua</a>
             </div>
             <div class="row" id="newPropertiesList">
                 <?php
@@ -152,7 +152,7 @@ $result_best = $conn->query($sql_best);
                         }
                         echo "</p>";
                         echo "<p class='card-text'><strong>Harga:</strong> Rp " . number_format($row['price'], 0, ',', '.') . '</p>'; // Harga properti
-                        echo "<a href='detail.php?id=" . $row['id'] . "' class='btn btn-primary w-100'>Lihat Detail</a>"; // Tombol detail
+                        echo "<a href='detail?id=" . $row['id'] . "' class='btn btn-primary w-100'>Lihat Detail</a>"; // Tombol detail
                         echo '</div>'; // Tutup card-body
                         echo '</div>'; // Tutup card
                         echo '</div>'; // Tutup kolom
@@ -167,7 +167,7 @@ $result_best = $conn->query($sql_best);
             <!-- Properti Terbaik -->
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h3 class="btn btn-success">Properti Terbaik</h3>
-                <a href="best_property.php" class="btn btn-outline-success btn-sm">Lihat Semua</a>
+                <a href="best_property" class="btn btn-outline-success btn-sm">Lihat Semua</a>
             </div>
             <div class="row" id="bestPropertiesList">
                 <?php
@@ -217,7 +217,7 @@ $result_best = $conn->query($sql_best);
                         echo "<p class='card-text'><strong>Harga:</strong> Rp " . number_format($row['price'], 0, ',', '.') . '</p>';
                 
                         // Tombol detail
-                        echo "<a href='detail.php?id=" . $row['id'] . "' class='btn btn-success w-100'>Lihat Detail</a>";
+                        echo "<a href='detail?id=" . $row['id'] . "' class='btn btn-success w-100'>Lihat Detail</a>";
                         echo '</div>'; // Tutup card-body
                         echo '</div>'; // Tutup card
                         echo '</div>'; // Tutup kolom

@@ -25,6 +25,16 @@ $result_best = $conn->query($sql_best);
         .hero-section .col-md-6.order-1.order-md-2 {
             margin-top: 50px; /* Atur jarak sesuai kebutuhan */
         }
+        /* CSS tambahan untuk tampilan mobile */
+        @media (max-width: 768px) {
+        .navbar-nav .nav-link {
+            padding: 1rem;
+        }
+        .dropdown-menu {
+            position: static;
+            float: none;
+        }
+        }
     </style>
 </head>
 

@@ -21,6 +21,11 @@ $result_best = $conn->query($sql_best);
     <link rel="icon" href="assets/images/logo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .hero-section .col-md-6.order-1.order-md-2 {
+            margin-top: 50px; /* Atur jarak sesuai kebutuhan */
+        }
+    </style>
 </head>
 
 <body>
@@ -57,15 +62,12 @@ $result_best = $conn->query($sql_best);
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero-section d-flex align-items-center" style="height: 100vh; background-color: #f8f9fa;">
         <div class="container">
             <div class="row align-items-center">
-                <!-- Gambar -->
                 <div class="col-md-6 order-2 order-md-1">
                     <img src="assets/images/display.jpg" alt="Hero Image" class="img-fluid rounded shadow">
                 </div>
-                <!-- Teks -->
                 <div class="col-md-6 order-1 order-md-2 text-center text-md-start">
                     <h1 class="display-4 fw-bold">Temukan Rumah Impian Anda</h1>
                     <p class="lead">Jelajahi koleksi properti kami untuk menemukan rumah yang sesuai dengan kebutuhan
@@ -87,7 +89,7 @@ $result_best = $conn->query($sql_best);
                 <a href="new_property" class="btn btn-outline-primary btn-sm">Lihat Semua</a>
             </div>
             <div class="row" id="newPropertiesList">
-            <?php
+                <?php
             if ($result_new->num_rows > 0) {
                 while ($row = $result_new->fetch_assoc()) {
                     $images = isset($row['images']) && !empty($row['images']) ? explode(',', $row['images']) : ['default.jpg'];
@@ -172,7 +174,7 @@ $result_best = $conn->query($sql_best);
                 <a href="best_property" class="btn btn-outline-success btn-sm">Lihat Semua</a>
             </div>
             <div class="row" id="bestPropertiesList">
-            <?php
+                <?php
             if ($result_best->num_rows > 0) {
                 while ($row = $result_best->fetch_assoc()) {
                     $images = isset($row['images']) && !empty($row['images']) ? explode(',', $row['images']) : ['default.jpg'];

@@ -114,12 +114,21 @@ if (isset($_GET['edit'])) {
     <link rel="stylesheet" href="../style.css">
 </head>
 
-<body>
+<<body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100 top-0">
             <div class="container">
-                <a class="navbar-brand" href="#"> <img src="../assets/images/logo.png" alt="Logo" class="me-2"
-                        style="height: 40px;"> <span class="fs-5">PT MITRA USAHA SYARIAH</span></a>
+                <!-- Brand Logo -->
+                <a class="navbar-brand" href="#">
+                    <img src="../assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
+                    <span class="fs-5">PT MITRA USAHA SYARIAH</span>
+                </a>
+                <!-- Navbar Toggle Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Navbar Links -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a href="view_contacts.php" class="nav-link">Ulasan</a></li>
@@ -131,7 +140,7 @@ if (isset($_GET['edit'])) {
         </nav>
     </header>
 
-    <div class="container py-4 mt-3">
+    <div class="container py-4 mt-5">
         <?php if (isset($_SESSION['message'])): ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <?php echo $_SESSION['message']; unset($_SESSION['message']); ?>
@@ -149,78 +158,70 @@ if (isset($_GET['edit'])) {
                         <h5>Daftar Properti</h5>
                     </div>
                     <div class="card-body">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Judul</th>
-                                    <th>Tipe Rumah</th>
-                                    <th>Luas Tanah</th>
-                                    <th>Luas Bangunan</th>
-                                    <th>Harga</th>
-                                    <th>Lokasi</th>
-                                    <th>Status</th>
-                                    <th>Kategori</th>
-                                    <th>Gambar</th>
-                                    <th>Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-        // Ambil semua properti dari database
-        $result = $conn->query("SELECT id, title, house_type, land_area, building_area, price, location, status, category, images FROM properties ORDER BY created_at DESC");
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr>";
-            echo "<td>" . $row['id'] . "</td>";
-            echo "<td>" . $row['title'] . "</td>";
-            echo "<td>" . $row['house_type'] . "</td>";
-            echo "<td>" . $row['land_area'] . "</td>"; // Menghilangkan "m²"
-            echo "<td>" . $row['building_area'] . "</td>"; // Menghilangkan "m²"
-            echo "<td>Rp " . number_format((int)$row['price'], 0, ',', '.') . "</td>";
-            echo "<td>" . $row['location'] . "</td>";
-            echo "<td>" . htmlspecialchars($row['status']) . "</td>";
-            
-            // Menampilkan kategori dengan konversi
-            switch ($row['category']) {
-                case '0':
-                    echo "<td>Jual</td>";
-                    break;
-                case '1':
-                    echo "<td>Sewa</td>";
-                    break;
-                case '2':
-                    echo "<td>Sold Out</td>";
-                    break;
-                case '3':
-                    echo "<td>Take Over</td>";
-                    break;
-                default:
-                    echo "<td>Unknown</td>";
-                    break;
-            }
-                                                     
-                                // Proses untuk menampilkan gambar
-                                echo "<td>";
-                                $images = explode(',', $row['images']); // Pisahkan nama gambar berdasarkan koma
-                                if (count($images) > 0 && !empty($images[0])) {
-                                    foreach ($images as $image) {
-                                        echo "<img src='../assets/images/" . trim($image) . "' width='50' class='me-1' alt='Image'>";
-                                    }
-                                } else {
-                                    echo "<img src='../assets/images/default.jpg' width='50' alt='No Image'>"; // Gambar default jika tidak ada gambar
-                                }
-                                echo "</td>";
+                        <!-- Responsive Table -->
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Judul</th>
+                                        <th>Tipe Rumah</th>
+                                        <th>Luas Tanah</th>
+                                        <th>Luas Bangunan</th>
+                                        <th>Harga</th>
+                                        <th>Lokasi</th>
+                                        <th>Status</th>
+                                        <th>Kategori</th>
+                                        <th>Gambar</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $result = $conn->query("SELECT id, title, house_type, land_area, building_area, price, location, status, category, images FROM properties ORDER BY created_at DESC");
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo "<tr>";
+                                        echo "<td>" . $row['id'] . "</td>";
+                                        echo "<td>" . $row['title'] . "</td>";
+                                        echo "<td>" . $row['house_type'] . "</td>";
+                                        echo "<td>" . $row['land_area'] . "</td>";
+                                        echo "<td>" . $row['building_area'] . "</td>";
+                                        echo "<td>Rp " . number_format((int)$row['price'], 0, ',', '.') . "</td>";
+                                        echo "<td>" . $row['location'] . "</td>";
+                                        echo "<td>" . htmlspecialchars($row['status']) . "</td>";
 
-                                // Tombol aksi
-                                echo "<td>
-                                        <a href='add_property.php?edit=" . $row['id'] . "' class='btn btn-warning btn-sm'>Edit</a>
-                                        <a href='add_property.php?delete=" . $row['id'] . "' class='btn btn-danger btn-sm'>Delete</a>
-                                    </td>";
-                                echo "</tr>";
-                            }
-                            ?>
-                            </tbody>
-                        </table>
+                                        // Display category
+                                        switch ($row['category']) {
+                                            case '0': echo "<td>Jual</td>"; break;
+                                            case '1': echo "<td>Sewa</td>"; break;
+                                            case '2': echo "<td>Sold Out</td>"; break;
+                                            case '3': echo "<td>Take Over</td>"; break;
+                                            default: echo "<td>Unknown</td>"; break;
+                                        }
+
+                                        // Display images
+                                        echo "<td>";
+                                        $images = explode(',', $row['images']);
+                                        if (count($images) > 0 && !empty($images[0])) {
+                                            foreach ($images as $image) {
+                                                echo "<img src='../assets/images/" . trim($image) . "' width='50' class='me-1' alt='Image'>";
+                                            }
+                                        } else {
+                                            echo "<img src='../assets/images/default.jpg' width='50' alt='No Image'>";
+                                        }
+                                        echo "</td>";
+
+                                        // Action buttons
+                                        echo "<td>
+                                                <a href='add_property.php?edit=" . $row['id'] . "' class='btn btn-warning btn-sm'>Edit</a>
+                                                <a href='add_property.php?delete=" . $row['id'] . "' class='btn btn-danger btn-sm'>Delete</a>
+                                            </td>";
+                                        echo "</tr>";
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div> <!-- End of Responsive Table -->
                     </div>
                 </div>
             </div>
@@ -345,7 +346,7 @@ if (isset($_GET['edit'])) {
         <p>&copy; 2022 PT MITRA USAHA SYARIAH.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
     // Fungsi untuk memformat angka menjadi format Rupiah
     function formatRupiah(input) {

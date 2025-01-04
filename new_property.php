@@ -37,7 +37,7 @@ $result = $conn->query($query);
 
 <body>
 
-    <header>
+    <header class="bg-dark text-white text-center py-3">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
             <div class="container">
                 <!-- Brand dengan Logo -->
@@ -57,8 +57,8 @@ $result = $conn->query($query);
                             <a href="index" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="new_property.php" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="new_property.php" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Kategori
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -179,7 +179,7 @@ $result = $conn->query($query);
         ?>
         </div>
 
-       
+
     </div>
 
     <!-- Masukkan Bootstrap JS jika diperlukan -->

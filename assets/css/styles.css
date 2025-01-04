@@ -39,6 +39,18 @@
     font-weight: bold;
 }
 
+@media (max-width: 576px) {
+    .navbar-brand span {
+        font-size: 14px; /* Ukuran font lebih kecil untuk layar kecil */
+    }
+    .navbar-brand img {
+        height: 30px; /* Ukuran logo lebih kecil untuk layar kecil */
+    }
+    .nav-link {
+        font-size: 14px; /* Ukuran link lebih kecil untuk layar kecil */
+    }
+}
+
 /* Form Field Styling */
 .form-control:focus {
     border-color: #6c63ff;

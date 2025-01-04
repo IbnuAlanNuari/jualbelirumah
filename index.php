@@ -23,7 +23,7 @@ $result_best = $conn->query($sql_best);
 </head>
 
 <body>
-<header>
+    <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="index">
@@ -55,9 +55,9 @@ $result_best = $conn->query($sql_best);
             </div>
         </nav>
     </header>
-    
-   <!-- Hero Section -->
-   <section class="hero-section d-flex align-items-center" style="height: 100vh; background-color: #f8f9fa;">
+
+    <!-- Hero Section -->
+    <section class="hero-section d-flex align-items-center" style="height: 100vh; background-color: #f8f9fa;">
         <div class="container">
             <div class="row align-items-center">
                 <!-- Gambar -->
@@ -260,7 +260,8 @@ $result_best = $conn->query($sql_best);
                 </div>
                 <!-- Gambar -->
                 <div class="col-md-6 order-1 order-md-2 text-center">
-                    <img src="assets/images/hero-image.png" alt="Tentang Kami" class="img-fluid rounded shadow-lg" style="max-width: 100%; height: auto;">
+                    <img src="assets/images/hero-image.png" alt="Tentang Kami" class="img-fluid rounded shadow-lg"
+                        style="max-width: 100%; height: auto;">
                 </div>
             </div>
         </div>

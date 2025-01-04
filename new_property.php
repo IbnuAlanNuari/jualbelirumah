@@ -72,10 +72,10 @@ $result = $conn->query($query);
 
                         </li>
                         <li class="nav-item">
-                            <a href="best_property.php" class="nav-link">Property Terbaik</a>
+                            <a href="best_property" class="nav-link">Property Terbaik</a>
                         </li>
                         <li class="nav-item">
-                            <a href="contact.php" class="nav-link">Kontak</a>
+                            <a href="contact" class="nav-link">Kontak</a>
                         </li>
                     </ul>
                     <!-- Form Pencarian -->

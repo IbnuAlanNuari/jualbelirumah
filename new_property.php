@@ -35,13 +35,21 @@ $result = $conn->query($query);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
     <style>/* Untuk layar dengan lebar maksimum 768px (misalnya ponsel) */
-        @media (max-width: 768px) {
+       @media (max-width: 720px) {
         .card {
-            margin-bottom: 20px; /* Atur jarak antar kartu */
+            font-size: 12px;
         }
-        .card-img-top {
-            height: 200px; /* Atur tinggi gambar */
-        }}
+        .card-body {
+            padding: 10px;
+        }
+        .card img {
+            max-height: 100px;
+        }
+        .btn {
+            font-size: 10px;
+            padding: 5px 10px;
+        }
+    }
     </style>
 </head>
 
@@ -106,11 +114,7 @@ if ($result->num_rows > 0) {
         $images = array_slice($images, 0, 2); // Ambil maksimal 2 gambar
 
         // Menampilkan kartu properti
-        if ($counter % 2 == 0) {
-            echo "<div class='col-md-6 col-sm-6 mb-4'>"; // Mulai kolom kiri
-        } else {
-            echo "<div class='col-md-6 col-sm-6 mb-4 order-md-last'>"; // Mulai kolom kanan
-        }
+        echo "<div class='col-6 col-md-6 col-sm-6 mb-4'>"; // Kolom yang menampilkan 2 card per baris di semua layar
 
         echo "<div class='card shadow-sm border-light'>"; // Kartu properti
 
@@ -120,7 +124,7 @@ if ($result->num_rows > 0) {
             foreach ($images as $index => $image) {
                 $activeClass = $index === 0 ? 'active' : ''; // Hanya gambar pertama yang aktif
                 echo "<div class='carousel-item $activeClass'>";
-                echo "<img src='assets/images/" . htmlspecialchars(trim($image)) . "' class='d-block w-100' alt='" . htmlspecialchars($row['title']) . "' style='max-height: 150px; object-fit: cover;' />"; // Mengatur tinggi maksimal gambar
+                echo "<img src='assets/images/" . htmlspecialchars(trim($image)) . "' class='d-block w-100' alt='" . htmlspecialchars($row['title']) . "' style='max-height: 150px; object-fit: cover;' />";
                 echo "</div>";
             }
             echo "</div>";
@@ -135,13 +139,13 @@ if ($result->num_rows > 0) {
             echo "</div>";
         } else {
             // Jika hanya ada satu gambar
-            echo "<img src='assets/images/" . htmlspecialchars(trim($images[0])) . "' class='card-img-top' alt='" . htmlspecialchars($row['title']) . "' style='max-height: 150px; object-fit: cover;' />"; // Mengatur tinggi maksimal gambar
+            echo "<img src='assets/images/" . htmlspecialchars(trim($images[0])) . "' class='card-img-top' alt='" . htmlspecialchars($row['title']) . "' style='max-height: 150px; object-fit: cover;' />";
         }
 
         // Informasi properti
         echo "<div class='card-body'>";
-        echo "<h5 class='card-title'>" . htmlspecialchars($row['title']) . "</h5>"; // Judul properti
-        echo "<p class='card-text'><strong>Status:</strong> " . htmlspecialchars($row['status']) . "</p>"; // Status properti
+        echo "<h5 class='card-title'>" . htmlspecialchars($row['title']) . "</h5>";
+        echo "<p class='card-text'><strong>Status:</strong> " . htmlspecialchars($row['status']) . "</p>";
         echo "<p class='card-text'><strong>Kategori:</strong> ";
         switch ($row['category']) {
             case '0':
@@ -162,7 +166,7 @@ if ($result->num_rows > 0) {
         }
         echo "</p>";
         echo "<p class='card-text'><strong>Harga:</strong> Rp " . number_format($row['price'], 0, ',', '.') . "</p>";
-        echo "<a href='detail.php?id=" . $row['id'] . "' class='btn btn-primary btn-sm'>Lihat Detail</a>"; // Mengubah ukuran tombol
+        echo "<a href='detail.php?id=" . $row['id'] . "' class='btn btn-primary btn-sm'>Lihat Detail</a>";
         echo "</div>";
         echo "</div>";
         echo "</div>";
@@ -175,10 +179,11 @@ if ($result->num_rows > 0) {
 } else {
     echo "<div class='text-center'>";
     echo "<p>Tidak ada properti yang tersedia.</p>";
-    echo "<a href='new_property' class='btn btn-primary btn-sm'>Kembali</a>"; // Mengubah ukuran tombol
+    echo "<a href='new_property' class='btn btn-primary btn-sm'>Kembali</a>";
     echo "</div>";
 }
 ?>
+
         </div>
 
     </div>

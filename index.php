@@ -21,21 +21,6 @@ $result_best = $conn->query($sql_best);
     <link rel="icon" href="assets/images/logo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <style>
-        .hero-section .col-md-6.order-1.order-md-2 {
-            margin-top: 50px; /* Atur jarak sesuai kebutuhan */
-        }
-        /* CSS tambahan untuk tampilan mobile */
-        @media (max-width: 768px) {
-        .navbar-nav .nav-link {
-            padding: 1rem;
-        }
-        .dropdown-menu {
-            position: static;
-            float: none;
-        }
-        }
-    </style>
 </head>
 
 <body>
@@ -72,12 +57,15 @@ $result_best = $conn->query($sql_best);
         </nav>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero-section d-flex align-items-center" style="height: 100vh; background-color: #f8f9fa;">
         <div class="container">
             <div class="row align-items-center">
+                <!-- Gambar -->
                 <div class="col-md-6 order-2 order-md-1">
                     <img src="assets/images/display.jpg" alt="Hero Image" class="img-fluid rounded shadow">
                 </div>
+                <!-- Teks -->
                 <div class="col-md-6 order-1 order-md-2 text-center text-md-start">
                     <h1 class="display-4 fw-bold">Temukan Rumah Impian Anda</h1>
                     <p class="lead">Jelajahi koleksi properti kami untuk menemukan rumah yang sesuai dengan kebutuhan
@@ -100,81 +88,81 @@ $result_best = $conn->query($sql_best);
             </div>
             <div class="row" id="newPropertiesList">
                 <?php
-            if ($result_new->num_rows > 0) {
-                while ($row = $result_new->fetch_assoc()) {
-                    $images = isset($row['images']) && !empty($row['images']) ? explode(',', $row['images']) : ['default.jpg'];
-                    $images = array_slice($images, 0, 10); // Ambil maksimal 10 gambar
+if ($result_new->num_rows > 0) {
+    while ($row = $result_new->fetch_assoc()) {
+        $images = isset($row['images']) && !empty($row['images']) ? explode(',', $row['images']) : ['default.jpg'];
+        $images = array_slice($images, 0, 10); // Ambil maksimal 10 gambar
 
-                    echo "<div class='col-md-4 col-sm-6 mb-4'>";
-                    echo "<div class='card'>";
+        echo "<div class='col-md-4 col-sm-6 mb-4'>";
+        echo "<div class='card'>";
 
-                    if (count($images) > 1) {
-                        // Tampilkan carousel jika ada lebih dari satu gambar
-                        echo "<div id='carouselNew" . $row['id'] . "' class='carousel slide' data-bs-ride='carousel'>";
-                        echo "<div class='carousel-indicators'>";
-                        foreach ($images as $index => $image) {
-                            echo "<button type='button' data-bs-target='#carouselNew" . $row['id'] . "' data-bs-slide-to='$index' class='" . ($index === 0 ? 'active' : '') . "'></button>";
-                        }
-                        echo '</div>';
-
-                        echo "<div class='carousel-inner'>";
-                        foreach ($images as $index => $image) {
-                            echo "<div class='carousel-item " . ($index === 0 ? 'active' : '') . "'><img src='assets/images/" . trim($image) . "' class='d-block w-100' alt='" . $row['title'] . "'></div>";
-                        }
-                        echo '</div>';
-
-                        // Panah slide previous dan next
-                        echo "<button class='carousel-control-prev' type='button' data-bs-target='#carouselNew" .
-                            $row['id'] .
-                            "' data-bs-slide='prev'>
-                                <span class='carousel-control-prev-icon' aria-hidden='true'></span>
-                                <span class='visually-hidden'>Previous</span>
-                            </button>";
-                        echo "<button class='carousel-control-next' type='button' data-bs-target='#carouselNew" .
-                            $row['id'] .
-                            "' data-bs-slide='next'>
-                                <span class='carousel-control-next-icon' aria-hidden='true'></span>
-                                <span class='visually-hidden'>Next</span>
-                            </button>";
-                        echo '</div>';
-                    } else {
-                        // Tampilkan gambar statis jika hanya ada satu gambar
-                        echo "<img src='assets/images/" . trim($images[0]) . "' class='card-img-top' alt='" . htmlspecialchars($row['title']) . "'>";
-                    }
-
-                    echo "<div class='card-body'>";
-                    echo "<h5 class='card-title'>" . htmlspecialchars($row['title']) . '</h5>'; // Judul properti
-                    echo "<p class='card-text '><strong>Status:</strong> " . ucfirst(htmlspecialchars($row['status'])) . '</p>'; // Status properti
-                    // Menampilkan kategori
-                    echo "<p class='card-text'><strong>Kategori:</strong> ";
-                    switch ($row['category']) {
-                        case '0':
-                            echo "Jual";
-                            break;
-                        case '1':
-                            echo "Sewa";
-                            break;
-                        case '2':
-                            echo "Sold Out";
-                            break;
-                        case '3':
-                            echo "Take Over Jual";
-                            break;
-                        default:
-                            echo "Unknown";
-                            break;
-                    }
-                    echo "</p>";
-                    echo "<p class='card-text'><strong>Harga:</strong> Rp " . number_format($row['price'], 0, ',', '.') . '</p>'; // Harga properti
-                    echo "<a href='detail?id=" . $row['id'] . "' class='btn btn-primary w-100'>Lihat Detail</a>"; // Tombol detail
-                    echo '</div>'; // Tutup card-body
-                    echo '</div>'; // Tutup card
-                    echo '</div>'; // Tutup kolom
-                }
-            } else {
-                echo "<p class='text-center'>Tidak ada properti baru ditemukan.</p>";
+        if (count($images) > 1) {
+            // Tampilkan carousel jika ada lebih dari satu gambar
+            echo "<div id='carouselNew" . $row['id'] . "' class='carousel slide' data-bs-ride='carousel'>";
+            echo "<div class='carousel-indicators'>";
+            foreach ($images as $index => $image) {
+                echo "<button type='button' data-bs-target='#carouselNew" . $row['id'] . "' data-bs-slide-to='$index' class='" . ($index === 0 ? 'active' : '') . "'></button>";
             }
-            ?>
+            echo '</div>';
+
+            echo "<div class='carousel-inner'>";
+            foreach ($images as $index => $image) {
+                echo "<div class='carousel-item " . ($index === 0 ? 'active' : '') . "'><img src='assets/images/" . trim($image) . "' class='d-block w-100' alt='" . $row['title'] . "'></div>";
+            }
+            echo '</div>';
+
+            // Panah slide previous dan next
+            echo "<button class='carousel-control-prev' type='button' data-bs-target='#carouselNew" .
+                 $row['id'] .
+                 "' data-bs-slide='prev'>
+                     <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                     <span class='visually-hidden'>Previous</span>
+                 </button>";
+            echo "<button class='carousel-control-next' type='button' data-bs-target='#carouselNew" .
+                 $row['id'] .
+                 "' data-bs-slide='next'>
+                     <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                     <span class='visually-hidden'>Next</span>
+                 </button>";
+            echo '</div>';
+        } else {
+            // Tampilkan gambar statis jika hanya ada satu gambar
+            echo "<img src='assets/images/" . trim($images[0]) . "' class='card-img-top' alt='" . htmlspecialchars($row['title']) . "'>";
+        }
+
+        echo "<div class='card-body'>";
+        echo "<h5 class='card-title'>" . htmlspecialchars($row['title']) . '</h5>'; // Judul properti
+        echo "<p class='card-text '><strong>Status:</strong> " . ucfirst(htmlspecialchars($row['status'])) . '</p>'; // Status properti
+        // Menampilkan kategori
+        echo "<p class='card-text'><strong>Kategori:</strong> ";
+        switch ($row['category']) {
+            case '0':
+                echo "Jual";
+                break;
+            case '1':
+                echo "Sewa";
+                break;
+            case '2':
+                echo "Sold Out";
+                break;
+            case '3':
+                echo "Take Over Jual";
+                break;
+            default:
+                echo "Unknown";
+                break;
+        }
+        echo "</p>";
+        echo "<p class='card-text'><strong>Harga:</strong> Rp " . number_format($row['price'], 0, ',', '.') . '</p>'; // Harga properti
+        echo "<a href='detail?id=" . $row['id'] . "' class='btn btn-primary w-100'>Lihat Detail</a>"; // Tombol detail
+        echo '</div>'; // Tutup card-body
+        echo '</div>'; // Tutup card
+        echo '</div>'; // Tutup kolom
+    }
+} else {
+    echo "<p class='text-center'>Tidak ada properti baru ditemukan.</p>";
+}
+?>
 
             </div>
 
@@ -185,63 +173,61 @@ $result_best = $conn->query($sql_best);
             </div>
             <div class="row" id="bestPropertiesList">
                 <?php
-            if ($result_best->num_rows > 0) {
-                while ($row = $result_best->fetch_assoc()) {
-                    $images = isset($row['images']) && !empty($row['images']) ? explode(',', $row['images']) : ['default.jpg'];
-                    $images = array_slice($images, 0, 10); // Ambil maksimal 10 gambar
-
-                    echo "<div class='col-md-4 col-sm-6 mb-4'>";
-                    echo "<div class='card'>";
-
-                    if (count($images) > 1) {
-                        // Tampilkan carousel jika ada lebih dari satu gambar
-                        echo "<div id='carouselBest" . $row['id'] . "' class='carousel slide' data-bs-ride='carousel'>";
-                        echo "<div class='carousel-indicators'>";
-                        foreach ($images as $index => $image) {
-                            echo "<button type='button' data-bs-target='#carouselBest" . $row['id'] . "' data-bs-slide-to='$index' class='" . ($index === 0 ? 'active' : '') . "'></button>";
+                if ($result_best->num_rows > 0) {
+                    while ($row = $result_best->fetch_assoc()) {
+                        $images = isset($row['images']) && !empty($row['images']) ? explode(',', $row['images']) : ['default.jpg'];
+                        echo "<div class='col-md-4 mb-4'>";
+                        echo "<div class='card'>";
+                
+                        if (count($images) > 1) {
+                            // Tampilkan carousel jika ada lebih dari satu gambar
+                            echo "<div id='carouselBest" . $row['id'] . "' class='carousel slide' data-bs-ride='carousel'>";
+                            echo "<div class='carousel-indicators'>";
+                            foreach ($images as $index => $image) {
+                                echo "<button type='button' data-bs-target='#carouselBest" . $row['id'] . "' data-bs-slide-to='$index' class='" . ($index === 0 ? 'active' : '') . "'></button>";
+                            }
+                            echo '</div>';
+                
+                            echo "<div class='carousel-inner'>";
+                            foreach ($images as $index => $image) {
+                                echo "<div class='carousel-item " . ($index === 0 ? 'active' : '') . "'><img src='assets/images/" . trim($image) . "' class='d-block w-100' alt='" . $row['title'] . "'></div>";
+                            }
+                            echo '</div>';
+                
+                            // Panah slide previous dan next
+                            echo "<button class='carousel-control-prev' type='button' data-bs-target='#carouselBest" .
+                                $row['id'] .
+                                "' data-bs-slide='prev'>
+                                    <span class='carousel-control-prev-icon' aria-hidden='true'></span>
+                                    <span class='visually-hidden'>Previous</span>
+                                  </button>";
+                            echo "<button class='carousel-control-next' type='button' data-bs-target='#carouselBest" .
+                                $row['id'] .
+                                "' data-bs-slide='next'>
+                                    <span class='carousel-control-next-icon' aria-hidden='true'></span>
+                                    <span class='visually-hidden'>Next</span>
+                                  </button>";
+                            echo '</div>';
+                        } else {
+                            // Tampilkan gambar statis jika hanya ada satu gambar
+                            echo "<img src='assets/images/" . trim($images[0]) . "' class='card-img-top' alt='" . htmlspecialchars($row['title']) . "'>";
                         }
-                        echo '</div>';
-
-                        echo "<div class='carousel-inner'>";
-                        foreach ($images as $index => $image) {
-                            echo "<div class='carousel-item " . ($index === 0 ? 'active' : '') . "'><img src='assets/images/" . trim($image) . "' class='d-block w-100' alt='" . $row['title'] . "'></div>";
-                        }
-                        echo '</div>';
-
-                        // Panah slide previous dan next
-                        echo "<button class='carousel-control-prev' type='button' data-bs-target='#carouselBest" .
-                            $row['id'] .
-                            "' data-bs-slide='prev'>
-                                <span class='carousel-control-prev-icon' aria-hidden='true'></span>
-                                <span class='visually-hidden'>Previous</span>
-                            </button>";
-                        echo "<button class='carousel-control-next' type='button' data-bs-target='#carouselBest" .
-                            $row['id'] .
-                            "' data-bs-slide='next'>
-                                <span class='carousel-control-next-icon' aria-hidden='true'></span>
-                                <span class='visually-hidden'>Next</span>
-                            </button>";
-                        echo '</div>';
-                    } else {
-                        // Tampilkan gambar statis jika hanya ada satu gambar
-                        echo "<img src='assets/images/" . trim($images[0]) . "' class='card-img-top' alt='" . htmlspecialchars($row['title']) . "'>";
+                
+                        echo "<div class='card-body'>";
+                        echo "<h5 class='card-title'>" . htmlspecialchars($row['title']) . '</h5>'; // Judul properti
+                        echo "<p class='card-text text-muted'><strong>Status:</strong> " . ucfirst(htmlspecialchars($row['status'])) . '</p>'; // Status properti
+                        echo "<p class='card-text'><strong>Harga:</strong> Rp " . number_format($row['price'], 0, ',', '.') . '</p>';
+                
+                        // Tombol detail
+                        echo "<a href='detail?id=" . $row['id'] . "' class='btn btn-success w-100'>Lihat Detail</a>";
+                        echo '</div>'; // Tutup card-body
+                        echo '</div>'; // Tutup card
+                        echo '</div>'; // Tutup kolom
                     }
-
-                    echo "<div class='card-body'>";
-                    echo "<h5 class='card-title'>" . htmlspecialchars($row['title']) . '</h5>'; // Judul properti
-                    echo "<p class='card-text text-muted'><strong>Status:</strong> " . ucfirst(htmlspecialchars($row['status'])) . '</p>'; // Status properti
-                    echo "<p class='card-text'><strong>Harga:</strong> Rp " . number_format($row['price'], 0, ',', '.') . '</p>';
-
-                    // Tombol detail
-                    echo "<a href='detail?id=" . $row['id'] . "' class='btn btn-success w-100'>Lihat Detail</a>";
-                    echo '</div>'; // Tutup card-body
-                    echo '</div>'; // Tutup card
-                    echo '</div>'; // Tutup kolom
+                } else {
+                    echo "<p class='text-center'>Tidak ada properti terbaik ditemukan.</p>";
                 }
-            } else {
-                echo "<p class='text-center'>Tidak ada properti terbaik ditemukan.</p>";
-            }
-            ?>
+                ?>
 
             </div>
         </div>

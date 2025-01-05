@@ -33,44 +33,43 @@ $result_best = $conn->query($sql_best);
 
 <body>
     <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
-    <div class="container">
-        <!-- Brand di sisi kanan pada layar kecil, kiri pada layar besar -->
-        <a class="navbar-brand d-flex align-items-center ms-auto" href="index">
-            <img src="assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
-            <span class="fs-6 d-inline d-md-none">PT MITRA</span> <!-- Nama kecil untuk layar kecil -->
-            <span class="fs-5 d-none d-md-inline">PT MITRA USAHA SYARIAH</span>
-            <!-- Nama lengkap untuk layar besar -->
-        </a>
-        
-        <!-- Toggler untuk layar kecil -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
+            <div class="container">
+                <!-- Brand di sisi kanan pada layar kecil, kiri pada layar besar -->
+                <a class="navbar-brand d-flex align-items-center ms-auto" href="index">
+                    <img src="assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
+                    <span class="fs-6 d-inline d-md-none">PT MITRA</span> <!-- Nama kecil untuk layar kecil -->
+                    <span class="fs-5 d-none d-md-inline">PT MITRA USAHA SYARIAH</span>
+                    <!-- Nama lengkap untuk layar besar -->
+                </a>
 
-        <!-- Navigation Links -->
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Property
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="new_property">Property Terbaru</a></li>
-                        <li><a class="dropdown-item" href="best_property">Property Terbaik</a></li>
+                <!-- Toggler untuk layar kecil -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation Links -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Property
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="new_property">Property Terbaru</a></li>
+                                <li><a class="dropdown-item" href="best_property">Property Terbaik</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="#about-us" class="nav-link">Tentang Kami</a></li>
+                        <li class="nav-item"><a href="contact" class="nav-link">Kontak</a></li>
+                        <li class="nav-item"><a href="admin/login.php" target="_blank" class="nav-link">Admin</a></li>
                     </ul>
-                </li>
-                <li class="nav-item"><a href="#about-us" class="nav-link">Tentang Kami</a></li>
-                <li class="nav-item"><a href="contact" class="nav-link">Kontak</a></li>
-                <li class="nav-item"><a href="admin/login.php" target="_blank" class="nav-link">Admin</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
+                </div>
+            </div>
+        </nav>
     </header>
     <div>
         <!-- Hero Section -->

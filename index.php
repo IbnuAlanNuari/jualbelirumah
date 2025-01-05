@@ -29,6 +29,26 @@ $result_best = $conn->query($sql_best);
             flex: 0 0 50%;
         }
     }
+
+    /* Struktur dasar agar footer di bawah */
+    html,
+    body {
+        height: 100%;
+        /* Membuat tinggi halaman penuh */
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    main {
+        flex: 1;
+        /* Mengisi ruang kosong di antara header dan footer */
+    }
+
+    footer {
+        flex-shrink: 0;
+        /* Footer tetap di bawah */
+    }
     </style>
 </head>
 
@@ -298,7 +318,7 @@ $result_best = $conn->query($sql_best);
                         } else {
                             card.classList.remove('col-6'); // Hapus kelas untuk setengah lebar
                             card.classList.add(
-                            'col-12'); // Tambahkan kelas full-width untuk layar besar
+                                'col-12'); // Tambahkan kelas full-width untuk layar besar
                         }
                     });
                 };

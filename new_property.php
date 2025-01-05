@@ -34,6 +34,29 @@ $result = $conn->query($query);
     <!-- Masukkan Bootstrap CSS jika diperlukan -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+    /* Membatasi lebar menu dropdown */
+    .navbar-nav .dropdown-menu {
+        max-width: 200px;
+        font-size: 0.9rem; /* Ukuran font lebih kecil */
+    }
+
+    /* Mengatur padding dan margin untuk item */
+    .navbar-nav .nav-item {
+        margin: 0 5px; /* Mengurangi jarak antar item */
+    }
+
+    .navbar-nav .nav-link {
+        padding: 5px 10px; /* Mengurangi padding dalam link */
+    }
+
+    /* Mengatur teks agar tidak terlalu panjang */
+    .navbar-nav .dropdown-menu .dropdown-item {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
 </head>
 
 <body>

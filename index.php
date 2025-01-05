@@ -72,13 +72,14 @@ $result_best = $conn->query($sql_best);
     </header>
     <div>
         <!-- Hero Section -->
-        <section class="hero-section d-flex align-items-center justify-content-center" style="height: 100vh;"
-            style="margin-top: 150px; margin-bottom: 30px; height: auto;">
+        <section class="hero-section d-flex align-items-center"
+            style="margin-top: 100px; margin-bottom: 30px; height: auto;">
             <div class="container d-flex justify-content-center">
                 <div class="row align-items-center">
                     <!-- Gambar -->
                     <div class="col-md-12 text-center">
-                        <img src="assets/images/display.jpg" alt="Hero Image" class="img-fluid rounded shadow" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="assets/images/display.jpg" alt="Hero Image" class="img-fluid rounded shadow"
+                            style="max-width: 100%; height: auto;">
                     </div>
                 </div>
             </div>

@@ -280,10 +280,7 @@ $result_best = $conn->query($sql_best);
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="bg-dark text-white text-center py-3">
-            <p>&copy; 2022 PT MITRA USAHA SYARIAH.</p>
-        </footer>
+        
 
         <script src="js/script.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -313,6 +310,10 @@ $result_best = $conn->query($sql_best);
             window.addEventListener('resize', resizeCards);
         });
         </script>
+        <!-- Footer -->
+        <footer class="bg-dark text-white text-center py-3">
+            <p>&copy; 2022 PT MITRA USAHA SYARIAH.</p>
+        </footer>
 </body>
 
 </html>

@@ -211,7 +211,7 @@
 
 
 /* Responsiveness */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 576px) {
     .navbar {
         flex-direction: column; /* Navbar berubah vertikal pada layar kecil */
         align-items: flex-start; /* Konten rata kiri */

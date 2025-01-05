@@ -63,16 +63,17 @@ $result_best = $conn->query($sql_best);
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-section d-flex align-items-center">
-        <div class="container">
-            <div class="row align-items-center">
-                <!-- Gambar -->
-                <div class="col-md-6 order-2 order-md-1">
-                    <img src="assets/images/display.jpg" alt="Hero Image" class="img-fluid rounded shadow">
-                </div>
+    <section class="hero-section d-flex align-items-center" style="margin-top: 80px;">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Gambar -->
+            <div class="col-md-6 order-2 order-md-1">
+                <img src="assets/images/display.jpg" alt="Hero Image" class="img-fluid rounded shadow">
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Daftar Properti -->
     <section id="properties" class="listing-properties py-5">

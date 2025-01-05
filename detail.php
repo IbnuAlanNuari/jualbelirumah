@@ -85,11 +85,10 @@ $images = isset($row['images']) && !empty($row['images'])
                     <div class="carousel-inner">
                         <?php
                 foreach ($images as $index => $image) {
-                    // Tambahkan item carousel dengan kondisi aktif untuk gambar pertama
                     $activeClass = $index === 0 ? 'active' : '';
                     echo "
                         <div class='carousel-item $activeClass'>
-                            <img src='assets/images/" . htmlspecialchars(trim($image)) . "' class='d-block w-100 img-fluid' alt='Properti' data-bs-toggle='modal' data-bs-target='#imageModal' onclick='openModal($index)'>
+                            <img src='assets/images/" . htmlspecialchars(trim($image)) . "' class='d-block w-100 img-fluid fixed-size' alt='Properti' data-bs-toggle='modal' data-bs-target='#imageModal' onclick='openModal($index)'>
                         </div>
                     ";
                 }
@@ -123,7 +122,7 @@ $images = isset($row['images']) && !empty($row['images'])
                             $activeClass = $index === 0 ? 'active' : '';
                             echo "
                                 <div class='carousel-item $activeClass'>
-                                    <img src='assets/images/" . htmlspecialchars(trim($image)) . "' class='d-block w-100 img-fluid' alt='Properti'>
+                                    <img src='assets/images/" . htmlspecialchars(trim($image)) . "' class='d-block w-100 img-fluid fixed-size' alt='Properti'>
                                 </div>
                             ";
                         }
@@ -211,22 +210,31 @@ $images = isset($row['images']) && !empty($row['images'])
     </footer>
 
 
-    <script>
-    // JavaScript untuk sinkronisasi slide modal dengan slide utama
+    <!-- Tambahkan Bootstrap CSS dan JS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+<!-- CSS untuk Ukuran Gambar -->
+<style>
+    .fixed-size {
+        width: 100%;
+        height: 300px; /* Atur tinggi gambar */
+        object-fit: cover; /* Membuat gambar menyesuaikan tanpa distorsi */
+    }
+</style>
+
+<script>
+    // Sinkronisasi slide utama dan modal
     const mainCarousel = document.getElementById('imageCarousel');
     const modalCarousel = document.getElementById('modalCarousel');
 
     mainCarousel.addEventListener('slide.bs.carousel', function (event) {
         const activeIndex = event.to;
         const modalCarouselInstance = bootstrap.Carousel.getInstance(modalCarousel);
-        modalCarouselInstance.to(activeIndex); // Sinkronkan dengan slide modal
+        modalCarouselInstance.to(activeIndex);
     });
 </script>
-
-<!-- Tambahkan Bootstrap CSS dan JS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
 </body>
 

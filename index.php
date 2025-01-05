@@ -20,7 +20,7 @@ $result_best = $conn->query($sql_best);
     <title>PT MITRA USAHA SYARIAH</title>
     <link rel="icon" href="assets/images/logo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="..assets/css/styles.css">
     <style>
         @media (max-width: 576px) {
     .col-6 {
@@ -33,7 +33,7 @@ $result_best = $conn->query($sql_best);
 
 <body>
 <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="index">
                     <img src="assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">

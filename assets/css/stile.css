@@ -5,8 +5,9 @@
 }
 
 .small-card img {
-    height: 150px; /* Batasi tinggi gambar */
-    object-fit: cover; /* Sesuaikan gambar dalam area */
+    height: 200px; /* Ukuran gambar yang lebih kecil */
+    object-fit: cover; /* Menjaga proporsi gambar tetap bagus */
+    width: 100%; /* Lebar penuh dalam card */
 }
 
 .small-card .card-title {

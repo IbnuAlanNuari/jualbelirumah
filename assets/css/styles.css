@@ -207,3 +207,32 @@
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
+    /* Menyelaraskan brand dan navigasi */
+    .navbar-brand {
+        white-space: nowrap; /* Mencegah pemisahan teks */
+    }
+
+    /* Mengatur margin menu */
+    .navbar-nav .nav-item {
+        margin: 0 10px;
+    }
+
+    /* Ukuran teks dropdown menu */
+    .dropdown-menu {
+        font-size: 0.9rem;
+    }
+
+    /* Membatasi panjang teks dropdown */
+    .dropdown-item {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Responsivitas: Spasi lebih kecil untuk layar kecil */
+    @media (max-width: 768px) {
+        .navbar-nav .nav-item {
+            margin: 0 5px;
+        }
+    }

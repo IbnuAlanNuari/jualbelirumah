@@ -1,0 +1,23 @@
+.small-card {
+    font-size: 0.9rem; /* Ukuran font kecil */
+    padding: 0.5rem; /* Padding lebih kecil */
+    border-radius: 0.5rem; /* Sudut card lebih kecil */
+}
+
+.small-card img {
+    height: 150px; /* Batasi tinggi gambar */
+    object-fit: cover; /* Sesuaikan gambar dalam area */
+}
+
+.small-card .card-title {
+    font-size: 1rem; /* Ukuran judul lebih kecil */
+}
+
+.small-card .card-text {
+    font-size: 0.85rem; /* Ukuran teks lebih kecil */
+}
+
+.small-card .btn-sm {
+    font-size: 0.8rem; /* Ukuran tombol lebih kecil */
+    padding: 0.25rem 0.5rem; /* Padding tombol lebih kecil */
+}

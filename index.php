@@ -29,33 +29,6 @@ $result_best = $conn->query($sql_best);
             flex: 0 0 50%;
         }
     }
-
-    /* Struktur dasar agar footer di bawah */
-    .html,
-    .body {
-        height: 100%;
-        /* Membuat tinggi halaman penuh */
-        height: 100%;
-        /* Halaman penuh */
-        margin: 0;
-        /* Hilangkan margin default */
-        display: flex;
-        flex-direction: column;
-    }
-
-    .main {
-        flex: 1;
-        /* Mengisi ruang kosong di antara header dan footer */
-    }
-
-    .footer {
-        flex-shrink: 0;
-        /* Pastikan footer tidak menyusut */
-        background-color: #000;
-        color: #fff;
-        text-align: center;
-        padding: 1rem 0;
-    }
     </style>
 </head>
 
@@ -100,11 +73,11 @@ $result_best = $conn->query($sql_best);
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-section d-flex align-items-center">
+    <section class="hero-section d-flex align-items-center" style="margin-top: 80px;">
         <div class="container">
             <div class="row align-items-center">
                 <!-- Gambar -->
-                <div class="col-md-6 order-2 order-md-1 align-items-center">
+                <div class="align-items-center">
                     <img src="assets/images/display.jpg" alt="Hero Image" class="img-fluid rounded shadow">
                 </div>
             </div>
@@ -266,79 +239,79 @@ $result_best = $conn->query($sql_best);
     }
     ?>
             </div>
-            </div>
+        </div>
 
 
-            <!-- Tentang Kami Section -->
-            <section id="about-us" class="py-5 bg-light">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <!-- Text Tentang Kami -->
-                        <div class="col-md-6 order-2 order-md-1" style="text-align: justify;">
-                            <h2 class="fw-bold">Tentang Kami</h2>
-                            <p>
-                                PT MITRA USAHA SYARIAH didirikan berdasarkan Perseroan Terbatas Perorangan
-                                tanggal 1 Mei 2022. Perusahaan tersebut berkedudukan di Kota Cilegon - Banten dan
-                                telah mendapatkan pengesahan oleh Menteri Hukum dan Hak Asasi Manusia Republik
-                                Indonesia melalul Surat Keputusan No. AHU-016032.AH.01.30.Tahun 2022.
-                                Perusahaan ini bergerak di bidang jasa, terutama jasa jual, beli dan sewa properti serta
-                                kendaraan roda empat
-                            </p>
-                            <p>
-                                Pada Tahun 2022 PT Mitra Usaha Syariah memulai bisnis agent properti di Kota Cilegon-
-                                Banten. Selama masa merintis, kami memberikan layanan yang terbaik untuk informasi
-                                dan saran mengenai properti agar mendapatkan hunian atau properti yang sesuai
-                            </p>
-                            <p>
-                                Kami bekerjasama dengan hampir seluruh Bank Pemerintah dan Swasta dalam hal
-                                penyedia Kredit KPR, dsb. Dan juga ada bekerjasama dengan ratusan Developer atau
-                                pengembang dalam hal penjualan properti primary. Disamping itu kami juga mempunyai
-                                puluhan ribu relasi dan database dalam penjualan secondary market.
-                            </p>
-                            <a href="contact.php" class="btn btn-dark btn-lg mt-3">Hubungi Kami</a>
-                        </div>
-                        <!-- Gambar -->
-                        <div class="col-md-6 order-1 order-md-2 text-center">
-                            <img src="assets/images/hero-image.png" alt="Tentang Kami"
-                                class="img-fluid rounded shadow-lg" style="max-width: 100%; height: auto;">
-                        </div>
+        <!-- Tentang Kami Section -->
+        <section id="about-us" class="py-5 bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <!-- Text Tentang Kami -->
+                    <div class="col-md-6 order-2 order-md-1" style="text-align: justify;">
+                        <h2 class="fw-bold">Tentang Kami</h2>
+                        <p>
+                            PT MITRA USAHA SYARIAH didirikan berdasarkan Perseroan Terbatas Perorangan
+                            tanggal 1 Mei 2022. Perusahaan tersebut berkedudukan di Kota Cilegon - Banten dan
+                            telah mendapatkan pengesahan oleh Menteri Hukum dan Hak Asasi Manusia Republik
+                            Indonesia melalul Surat Keputusan No. AHU-016032.AH.01.30.Tahun 2022.
+                            Perusahaan ini bergerak di bidang jasa, terutama jasa jual, beli dan sewa properti serta
+                            kendaraan roda empat
+                        </p>
+                        <p>
+                            Pada Tahun 2022 PT Mitra Usaha Syariah memulai bisnis agent properti di Kota Cilegon-
+                            Banten. Selama masa merintis, kami memberikan layanan yang terbaik untuk informasi
+                            dan saran mengenai properti agar mendapatkan hunian atau properti yang sesuai
+                        </p>
+                        <p>
+                            Kami bekerjasama dengan hampir seluruh Bank Pemerintah dan Swasta dalam hal
+                            penyedia Kredit KPR, dsb. Dan juga ada bekerjasama dengan ratusan Developer atau
+                            pengembang dalam hal penjualan properti primary. Disamping itu kami juga mempunyai
+                            puluhan ribu relasi dan database dalam penjualan secondary market.
+                        </p>
+                        <a href="contact.php" class="btn btn-dark btn-lg mt-3">Hubungi Kami</a>
+                    </div>
+                    <!-- Gambar -->
+                    <div class="col-md-6 order-1 order-md-2 text-center">
+                        <img src="assets/images/hero-image.png" alt="Tentang Kami" class="img-fluid rounded shadow-lg"
+                            style="max-width: 100%; height: auto;">
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Footer -->
-            <footer class="bg-dark text-white text-center py-3">
-                <p>&copy; 2022 PT MITRA USAHA SYARIAH.</p>
-            </footer>
+        <!-- Footer -->
+        <footer class="bg-dark text-white text-center py-3">
+            <p>&copy; 2022 PT MITRA USAHA SYARIAH.</p>
+        </footer>
 
-            <script src="js/script.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-            <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const resizeCards = () => {
-                    const cards = document.querySelectorAll('.col-lg-4.col-md-6.col-sm-6.col-12');
-                    const screenWidth = window.innerWidth;
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const resizeCards = () => {
+                const cards = document.querySelectorAll('.col-lg-4.col-md-6.col-sm-6.col-12');
+                const screenWidth = window.innerWidth;
 
-                    cards.forEach(card => {
-                        if (screenWidth <= 576) { // Untuk layar kecil (mobile)
-                            card.classList.remove('col-12'); // Hapus kelas full-width
-                            card.classList.add('col-6'); // Tambahkan kelas untuk setengah lebar
-                        } else {
-                            card.classList.remove('col-6'); // Hapus kelas untuk setengah lebar
-                            card.classList.add(
-                                'col-12'); // Tambahkan kelas full-width untuk layar besar
-                        }
-                    });
-                };
+                cards.forEach(card => {
+                    if (screenWidth <= 576) { // Untuk layar kecil (mobile)
+                        card.classList.remove('col-12'); // Hapus kelas full-width
+                        card.classList.add('col-6'); // Tambahkan kelas untuk setengah lebar
+                    } else {
+                        card.classList.remove('col-6'); // Hapus kelas untuk setengah lebar
+                        card.classList.add(
+                            'col-12'); // Tambahkan kelas full-width untuk layar besar
+                    }
+                });
+            };
 
-                // Jalankan fungsi saat halaman dimuat
-                resizeCards();
+            // Jalankan fungsi saat halaman dimuat
+            resizeCards();
 
-                // Jalankan fungsi saat ukuran layar berubah
-                window.addEventListener('resize', resizeCards);
-            });
-            </script>
+            // Jalankan fungsi saat ukuran layar berubah
+            window.addEventListener('resize', resizeCards);
+        });
+        </script>
 </body>
 
 </html>

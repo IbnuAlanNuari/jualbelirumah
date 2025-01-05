@@ -20,15 +20,15 @@ $result_best = $conn->query($sql_best);
     <title>PT MITRA USAHA SYARIAH</title>
     <link rel="icon" href="assets/images/logo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="..assets/css/styles.css">
     <link rel="stylesheet" href="stile.css">
     <style>
-    @media (max-width: 576px) {
-        .col-6 {
-            max-width: 50%;
-            flex: 0 0 50%;
-        }
+        @media (max-width: 576px) {
+    .col-6 {
+        max-width: 50%;
+        flex: 0 0 50%;
     }
+}
     </style>
 </head>
 
@@ -277,15 +277,14 @@ $result_best = $conn->query($sql_best);
                     </div>
                 </div>
             </section>
-</body>
-<footer class="bg-dark text-white text-center py-3">
-    <p>&copy; 2022 PT MITRA USAHA SYARIAH.</p>
-</footer>
-<script src="js/script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
+            <footer class="bg-dark text-white text-center py-3">
+                <p>&copy; 2022 PT MITRA USAHA SYARIAH.</p>
+            </footer>
+            <script src="js/script.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+            
+            <script>document.addEventListener('DOMContentLoaded', function () {
     const resizeCards = () => {
         const cards = document.querySelectorAll('.col-lg-4.col-md-6.col-sm-6.col-12');
         const screenWidth = window.innerWidth;
@@ -308,5 +307,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', resizeCards);
 });
 </script>
+</body>
 
 </html>

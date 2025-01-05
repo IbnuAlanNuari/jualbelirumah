@@ -39,17 +39,21 @@ $result = $conn->query($query);
 <body>
     <header class="bg-dark text-white text-center py-3">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
-            <div class="container">
-                <!-- Logo dan Brand -->
-                <a class="navbar-brand d-flex align-items-center" href="new_property">
+            <div class="container d-flex justify-content-between align-items-center">
+                <!-- Logo dan Brand di sebelah kiri -->
+                <a class="navbar-brand d-flex align-items-center" href="index">
                     <img src="assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
-                    <span class="fs-5">PT MITRA USAHA SYARIAH</span>
+                    <span class="fs-6 d-inline d-md-none">PT MITRA</span> <!-- Nama kecil untuk layar kecil -->
+                    <span class="fs-5 d-none d-md-inline">PT MITRA USAHA SYARIAH</span>
+                    <!-- Nama lengkap untuk layar besar -->
                 </a>
-                <!-- Tombol Toggle untuk Mobile -->
+
+                <!-- Toggler untuk layar kecil -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <!-- Menu Navbar -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
@@ -66,12 +70,11 @@ $result = $conn->query($query);
                                 <li><a class="dropdown-item" href="new_property?category=3">Take Over Jual</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="best_property" class="nav-link">Property Terbaik</a>
-                        </li>
+                        <li class="nav-item"><a href="best_property" class="nav-link">Property Terbaik</a></li>
                         <li class="nav-item"><a href="contact" class="nav-link">Kontak</a></li>
                     </ul>
-                    <!-- Form Pencarian -->
+
+                    <!-- Form Pencarian di sebelah kanan -->
                     <form class="d-flex ms-lg-3 mt-2 mt-lg-0" action="search_properties" method="GET">
                         <input class="form-control me-2" type="search" name="query" placeholder="Cari Properti"
                             aria-label="Search">
@@ -81,12 +84,12 @@ $result = $conn->query($query);
             </div>
         </nav>
     </header>
-  
-    <div class="container py-5 mt-5" style="margin-top: 7rem;">
-    <h2 class="text-center mb-4">Properti Terbaru</h2>
 
-    <div class="row">
-    <?php
+    <div class="container py-5 mt-5" style="margin-top: 7rem;">
+        <h2 class="text-center mb-4">Properti Terbaru</h2>
+
+        <div class="row">
+            <?php
        if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             // Memproses gambar properti

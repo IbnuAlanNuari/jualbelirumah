@@ -217,3 +217,16 @@
 .navbar-nav .dropdown-toggle:hover {
     color: #ffcc00 !important; /* Warna teks saat dihover */
 }
+
+.custom-dropdown .dropdown-menu {
+    background-color: #000; /* Warna hitam */
+    color: #fff; /* Warna teks putih */
+}
+
+.custom-dropdown .dropdown-menu a.dropdown-item {
+    color: #fff; /* Warna teks putih */
+}
+
+.custom-dropdown .dropdown-menu a.dropdown-item:hover {
+    background-color: #444; /* Warna abu-abu gelap untuk hover */
+}

@@ -279,8 +279,9 @@ if (isset($_GET['edit'])) {
                                     Tanah Girik</option>
                                 <option value="AJB"
                                     <?php echo isset($property) && $property['status'] == 'AJB' ? 'selected' : ''; ?>>
-                                    Tanah Girik</option>
+                                    AJB</option>
                             </select>
+
                         </div>
 
                         <div class="mb-3">

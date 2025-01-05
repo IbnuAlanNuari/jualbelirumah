@@ -76,7 +76,6 @@ $result_best = $conn->query($sql_best);
         </div>
     </section>
 
-
     <!-- Daftar Properti -->
     <section id="properties" class="listing-properties py-5">
         <div class="container">
@@ -111,15 +110,11 @@ $result_best = $conn->query($sql_best);
                         }
                         echo '</div>';
 
-                        echo "<button class='carousel-control-prev' type='button' data-bs-target='#carouselNew" .
-                            $row['id'] .
-                            "' data-bs-slide='prev'>
+                        echo "<button class='carousel-control-prev' type='button' data-bs-target='#carouselNew" . $row['id'] . "' data-bs-slide='prev'>
                                 <span class='carousel-control-prev-icon' aria-hidden='true'></span>
                                 <span class='visually-hidden'>Previous</span>
                             </button>";
-                        echo "<button class='carousel-control-next' type='button' data-bs-target='#carouselNew" .
-                            $row['id'] .
-                            "' data-bs-slide='next'>
+                        echo "<button class='carousel-control-next' type='button' data-bs-target='#carouselNew" . $row['id'] . "' data-bs-slide='next'>
                                 <span class='carousel-control-next-icon' aria-hidden='true'></span>
                                 <span class='visually-hidden'>Next</span>
                             </button>";
@@ -160,7 +155,6 @@ $result_best = $conn->query($sql_best);
                 echo "<p class='text-center'>Tidak ada properti baru ditemukan.</p>";
             }
             ?>
-
             </div>
 
             <!-- Properti Terbaik -->
@@ -175,7 +169,7 @@ $result_best = $conn->query($sql_best);
                         $images = isset($row['images']) && !empty($row['images']) ? explode(',', $row['images']) : ['default.jpg'];
                         echo "<div class='col-md-4 mb-4'>";
                         echo "<div class='card'>";
-                
+
                         if (count($images) > 1) {
                             // Tampilkan carousel jika ada lebih dari satu gambar
                             echo "<div id='carouselBest" . $row['id'] . "' class='carousel slide' data-bs-ride='carousel'>";
@@ -184,13 +178,13 @@ $result_best = $conn->query($sql_best);
                                 echo "<button type='button' data-bs-target='#carouselBest" . $row['id'] . "' data-bs-slide-to='$index' class='" . ($index === 0 ? 'active' : '') . "'></button>";
                             }
                             echo '</div>';
-                
+
                             echo "<div class='carousel-inner'>";
                             foreach ($images as $index => $image) {
-                                echo "<div class='carousel-item " . ($index === 0 ? 'active' : '') . "'><img src='assets/images/" . trim($image) . "' class='d-block w-100' alt='" . $row['title'] . "'></div>";
+                                echo "<div class='carousel-item " . ($index === 0 ? 'active' : '') . "'><img src='assets/images/" . trim($image) . "' class='d-block w-100' alt='" . htmlspecialchars($row['title']) . "'></div>";
                             }
                             echo '</div>';
-                
+
                             // Panah slide previous dan next
                             echo "<button class='carousel-control-prev' type='button' data-bs-target='#carouselBest" .
                                 $row['id'] .
@@ -209,12 +203,12 @@ $result_best = $conn->query($sql_best);
                             // Tampilkan gambar statis jika hanya ada satu gambar
                             echo "<img src='assets/images/" . trim($images[0]) . "' class='card-img-top' alt='" . htmlspecialchars($row['title']) . "'>";
                         }
-                
+
                         echo "<div class='card-body'>";
                         echo "<h5 class='card-title'>" . htmlspecialchars($row['title']) . '</h5>'; // Judul properti
                         echo "<p class='card-text text-muted'><strong>Status:</strong> " . ucfirst(htmlspecialchars($row['status'])) . '</p>'; // Status properti
                         echo "<p class='card-text'><strong>Harga:</strong> Rp " . number_format($row['price'], 0, ',', '.') . '</p>';
-                
+
                         // Tombol detail
                         echo "<a href='detail?id=" . $row['id'] . "' class='btn btn-success w-100'>Lihat Detail</a>";
                         echo '</div>'; // Tutup card-body

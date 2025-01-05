@@ -84,10 +84,7 @@ $result = $conn->query($query);
             </div>
         </nav>
     </header>
-
-    <div class="container py-5 mt-5" style="margin-top: 7rem;">
-        <h2 class="text-center mb-4">Properti Terbaru</h2>
-
+    
         <div class="container py-5 mt-5" style="margin-top: 7rem;">
             <h2 class="text-center mb-4">Properti Terbaru</h2>
 

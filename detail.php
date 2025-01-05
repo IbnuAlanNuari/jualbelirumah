@@ -111,9 +111,9 @@ $images = isset($row['images']) && !empty($row['images'])
 
         <!-- Modal untuk Gambar -->
         <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                    <div class="modal-body p-0">
+                    <div class="modal-body p-0 text-center">
                         <!-- Carousel di dalam Modal -->
                         <div id="modalCarousel" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
@@ -122,7 +122,7 @@ $images = isset($row['images']) && !empty($row['images'])
                             $activeClass = $index === 0 ? 'active' : '';
                             echo "
                                 <div class='carousel-item $activeClass'>
-                                    <img src='assets/images/" . htmlspecialchars(trim($image)) . "' class='d-block w-100 img-fluid fixed-size' alt='Properti'>
+                                    <img src='assets/images/" . htmlspecialchars(trim($image)) . "' class='img-fluid' alt='Properti'>
                                 </div>
                             ";
                         }
@@ -215,24 +215,24 @@ $images = isset($row['images']) && !empty($row['images'])
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
-<!-- CSS untuk Ukuran Gambar -->
+<!-- CSS untuk Carousel Utama -->
 <style>
     .fixed-size {
         width: 100%;
-        height: 300px; /* Atur tinggi gambar */
-        object-fit: cover; /* Membuat gambar menyesuaikan tanpa distorsi */
+        height: 300px; /* Tinggi tetap untuk carousel utama */
+        object-fit: cover; /* Menjaga proporsi tanpa distorsi */
     }
 </style>
 
 <script>
-    // Sinkronisasi slide utama dan modal
+    // JavaScript untuk sinkronisasi slide utama dan modal
     const mainCarousel = document.getElementById('imageCarousel');
     const modalCarousel = document.getElementById('modalCarousel');
 
     mainCarousel.addEventListener('slide.bs.carousel', function (event) {
         const activeIndex = event.to;
         const modalCarouselInstance = bootstrap.Carousel.getInstance(modalCarousel);
-        modalCarouselInstance.to(activeIndex);
+        modalCarouselInstance.to(activeIndex); // Sinkronkan slide dengan modal
     });
 </script>
 

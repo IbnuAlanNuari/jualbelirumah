@@ -34,8 +34,6 @@ $result_best = $conn->query($sql_best);
                     <span class="fs-5 d-none d-md-inline">PT MITRA USAHA SYARIAH</span>
                     <!-- Nama lengkap untuk layar besar -->
                 </a>
-
-
                 <!-- Toggler untuk layar kecil -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

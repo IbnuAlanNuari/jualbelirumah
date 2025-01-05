@@ -36,40 +36,44 @@ if (!$result) {
 </head>
 
 <body>
-    <header class="bg-dark text-white text-center py-3">
+<header class="bg-dark text-white text-center py-3">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
-            <div class="container">
-                <!-- Logo dan Brand -->
+            <div class="container d-flex justify-content-between align-items-center">
+                <!-- Logo dan Brand di sebelah kiri -->
                 <a class="navbar-brand d-flex align-items-center" href="best_property">
                     <img src="assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
-                    <span class="fs-5">PT MITRA USAHA SYARIAH</span>
+                    <span class="fs-6 d-inline d-md-none">PT MITRA</span> <!-- Nama kecil untuk layar kecil -->
+                    <span class="fs-5 d-none d-md-inline">PT MITRA USAHA SYARIAH</span>
+                    <!-- Nama lengkap untuk layar besar -->
                 </a>
-                <!-- Tombol Toggle untuk Mobile -->
+
+                <!-- Toggler untuk layar kecil -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <!-- Menu Navbar -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="new_property" class="nav-link">Property Baru</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Kategori Harga
+                            <a class="nav-link dropdown-toggle" href="new_property.php" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Kategori
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                            <li class="nav-item"><a href="new_property" class="nav-link">Property Terbaru</a></li>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="best_property?category=0">Jual</a></li>
                                 <li><a class="dropdown-item" href="best_property?category=1">Sewa</a></li>
                                 <li><a class="dropdown-item" href="best_property?category=2">Sold Out</a></li>
                                 <li><a class="dropdown-item" href="best_property?category=3">Take Over Jual</a></li>
                             </ul>
                         </li>
-
                         <li class="nav-item"><a href="contact" class="nav-link">Kontak</a></li>
                     </ul>
-                    <!-- Form Pencarian -->
+
+                    <!-- Form Pencarian di sebelah kanan -->
                     <form class="d-flex ms-lg-3 mt-2 mt-lg-0" action="search_properties" method="GET">
                         <input class="form-control me-2" type="search" name="query" placeholder="Cari Properti"
                             aria-label="Search">

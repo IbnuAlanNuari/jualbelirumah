@@ -46,22 +46,31 @@ $images = isset($row['images']) && !empty($row['images'])
     <!-- Navbar -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
-            <div class="container">
-                <a class="navbar-brand" href="index"><img src="assets/images/logo.png" alt="Logo" class="me-2"
-                        style="height: 40px;">PT MITRA USAHA SYARIAH</a>
+            <div class="container d-flex justify-content-between align-items-center">
+                <!-- Brand Logo di sebelah kiri -->
+                <a class="navbar-brand d-flex align-items-center" href="index">
+                    <img src="assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
+                    <span class="fs-6 d-inline d-md-none">PT MITRA</span> <!-- Nama kecil untuk layar kecil -->
+                    <span class="fs-5 d-none d-md-inline">PT MITRA USAHA SYARIAH</span>
+                    <!-- Nama lengkap untuk layar besar -->
+                </a>
+                <!-- Toggler untuk layar kecil -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <!-- Navbar Links di sebelah kanan -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="new_property" class="nav-link">Property baru</a></li>
+                        <li class="nav-item"><a href="new_property" class="nav-link">Property Baru</a></li>
                         <li class="nav-item"><a href="best_property" class="nav-link">Property Terbaik</a></li>
                         <li class="nav-item"><a href="contact" class="nav-link">Kontak</a></li>
+                    </ul>
                 </div>
             </div>
         </nav>
+
     </header>
 
     <!-- Detail Properti -->
@@ -147,7 +156,7 @@ $images = isset($row['images']) && !empty($row['images'])
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
 </body>
 
 </html>

@@ -58,7 +58,7 @@ $result_best = $conn->query($sql_best);
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Property
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu custom-dropdown" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="new_property">Property Terbaru</a></li>
                                 <li><a class="dropdown-item" href="best_property">Property Terbaik</a></li>
                             </ul>

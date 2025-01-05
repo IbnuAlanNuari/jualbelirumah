@@ -11,40 +11,41 @@
 </head>
 
 <body>
-<header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100 top-0">
-        <div class="container d-flex justify-content-between align-items-center">
-            <!-- Brand di sisi kiri -->
-            <a class="navbar-brand d-flex align-items-center" href="best_property">
-                <img src="assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
-                <span class="fs-6 d-inline d-md-none">PT MITRA</span> <!-- Nama kecil untuk layar kecil -->
-                <span class="fs-5 d-none d-md-inline">PT MITRA USAHA SYARIAH</span> <!-- Nama lengkap untuk layar besar -->
-            </a>
-            <!-- Toggler untuk layar kecil -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Menu Navbar di sisi kanan -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="new_property.php" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Property
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="new_property">Property Terbaru</a></li>
-                            <li><a class="dropdown-item" href="best_property">Property Terbaik</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a href="#maps" class="nav-link">Lokasi Kami</a></li>
-                </ul>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100 top-0">
+            <div class="container d-flex justify-content-between align-items-center">
+                <!-- Brand di sisi kiri -->
+                <a class="navbar-brand d-flex align-items-center" href="best_property">
+                    <img src="assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
+                    <span class="fs-6 d-inline d-md-none">PT MITRA</span> <!-- Nama kecil untuk layar kecil -->
+                    <span class="fs-5 d-none d-md-inline">PT MITRA USAHA SYARIAH</span>
+                    <!-- Nama lengkap untuk layar besar -->
+                </a>
+                <!-- Toggler untuk layar kecil -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Menu Navbar di sisi kanan -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="new_property.php" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Property
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="new_property">Property Terbaru</a></li>
+                                <li><a class="dropdown-item" href="best_property">Property Terbaik</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="#maps" class="nav-link">Lokasi Kami</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
 
 
     <section class="contact-us py-5 mt-5">

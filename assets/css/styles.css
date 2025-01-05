@@ -184,3 +184,22 @@
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Menambahkan sedikit bayangan pada dropdown */
     background-color: #343a40; /* Warna latar belakang dropdown (sesuaikan dengan tema) */
 }
+
+/* Menampilkan dua kartu per baris pada layar kecil (max-width: 768px) */
+@media (max-width: 768px) {
+    .custom-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .custom-card {
+        flex: 0 0 48%; /* Membuat kartu mengambil 48% dari lebar container */
+        margin-bottom: 1rem; /* Jarak antar kartu */
+    }
+    
+    /* Membatasi jumlah baris menjadi dua pada layar kecil */
+    .custom-row:nth-of-type(n+3) {
+        display: none; /* Menyembunyikan baris ke-3 dan seterusnya */
+    }
+}

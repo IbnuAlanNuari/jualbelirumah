@@ -114,9 +114,33 @@ $images = isset($row['images']) && !empty($row['images'])
         <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
-                    <div class="modal-body">
-                        <!-- Konten Modal -->
-                        <img id="modalImage" src="" class="img-fluid" alt="Properti">
+                    <div class="modal-body p-0">
+                        <!-- Carousel di dalam Modal -->
+                        <div id="modalCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <?php
+                        foreach ($images as $index => $image) {
+                            $activeClass = $index === 0 ? 'active' : '';
+                            echo "
+                                <div class='carousel-item $activeClass'>
+                                    <img src='assets/images/" . htmlspecialchars(trim($image)) . "' class='d-block w-100 img-fluid' alt='Properti'>
+                                </div>
+                            ";
+                        }
+                        ?>
+                            </div>
+                            <!-- Navigasi Carousel -->
+                            <button class="carousel-control-prev" type="button" data-bs-target="#modalCarousel"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#modalCarousel"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -188,19 +212,21 @@ $images = isset($row['images']) && !empty($row['images'])
 
 
     <script>
-    // JavaScript untuk menampilkan gambar di modal
-    const images = <?php echo json_encode($images); ?>;
+    // JavaScript untuk sinkronisasi slide modal dengan slide utama
+    const mainCarousel = document.getElementById('imageCarousel');
+    const modalCarousel = document.getElementById('modalCarousel');
 
-    function openModal(index) {
-        const modalImage = document.getElementById('modalImage');
-        modalImage.src = `assets/images/${images[index].trim()}`;
-    }
-    </script>
+    mainCarousel.addEventListener('slide.bs.carousel', function (event) {
+        const activeIndex = event.to;
+        const modalCarouselInstance = bootstrap.Carousel.getInstance(modalCarousel);
+        modalCarouselInstance.to(activeIndex); // Sinkronkan dengan slide modal
+    });
+</script>
 
-    <!-- Tambahkan Bootstrap CSS dan JS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<!-- Tambahkan Bootstrap CSS dan JS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
 </body>
 

@@ -1,56 +1,21 @@
 /* Gaya Umum untuk Semua Halaman */
 
 .body {
-    background-color: #f4f7fc;
-    font-family: 'Arial', sans-serif;
+    padding-top: 70px; /* Sesuaikan dengan tinggi navbar */
+    font-family: Arial, sans-serif; /* Mengubah font menjadi Arial */
 }
 
-.login-container {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.footer p {
+    margin: 0;
+    font-size: 14px; /* Ukuran font footer lebih kecil */
 }
 
-.card {
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+/* Card customization for smaller screens */
+.card img {
+    height: 200px;  /* Mengatur tinggi gambar pada card */
+    object-fit: cover; /* Memastikan gambar menutupi area card tanpa distorsi */
 }
 
-.card-header {
-    background-color: #0f1011;
-    color: white;
-    padding: 20px;
-    font-size: 1.25rem;
-    text-align: center;
-}
-
-.card-body {
-    background-color: white;
-    padding: 30px;
-}
-
-.form-label {
-    font-weight: bold;
-}
-
-.btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-}
-
-.btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #004085;
-}
-
-.footer {
-    text-align: center;
-    padding: 10px;
-    font-size: 0.875rem;
-    color: #555;
-}
 /* Menambahkan penyesuaian ukuran font untuk Navbar */
 .navbar-brand {
     font-size: 20px; /* Ukuran font lebih besar pada navbar brand */
@@ -72,6 +37,18 @@
 .navbar-brand {
     font-size: 24px;
     font-weight: bold;
+}
+
+@media (max-width: 576px) {
+    .navbar-brand span {
+        font-size: 14px; /* Ukuran font lebih kecil untuk layar kecil */
+    }
+    .navbar-brand img {
+        height: 30px; /* Ukuran logo lebih kecil untuk layar kecil */
+    }
+    .nav-link {
+        font-size: 14px; /* Ukuran link lebih kecil untuk layar kecil */
+    }
 }
 
 /* Form Field Styling */
@@ -209,80 +186,34 @@
 }
 
 
-
-/* Responsiveness */
-@media screen and (max-width: 576px) {
-    .navbar {
-        flex-direction: column; /* Navbar berubah vertikal pada layar kecil */
-        align-items: flex-start; /* Konten rata kiri */
-    }
-
-    .navbar-nav {
-        flex-direction: column; /* Menu vertikal */
-        margin-left: 0;
-        gap: 10px;
-    }
-}
-/* Mengatur ukuran gambar di dalam tabel */
-.table img {
-    width: 40px;  /* Atur lebar gambar sesuai kebutuhan */
-    height: auto; /* Menjaga rasio aspek gambar agar tetap proporsional */
-}
-/* Optional styling to adjust the search form position */
-.navbar .form-control {
-    width: 200px; /* Atur lebar kotak pencarian */
+/* Dropdown menu khusus navbar */
+.navbar-nav .dropdown-menu {
+    background-color: #343a40 !important; /* Warna gelap */
+    border: none !important; /* Menghapus border */
+    border-radius: 5px !important; /* Membuat sudut membulat */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important; /* Menambahkan bayangan */
 }
 
-/* Search Form Styles */
-.searchForm {
-    display: flex;
-    align-items: center;
-    gap: 5px; /* Jarak antara input dan tombol */
-    margin-left: auto; /* Tempatkan form di sisi kanan */
+/* Item dalam dropdown khusus navbar */
+.navbar-nav .dropdown-item {
+    color: #ffffff !important; /* Warna teks putih */
+    padding: 10px 20px !important; /* Padding untuk membuat dropdown lebih rapi */
+    transition: all 0.3s ease !important; /* Animasi halus pada hover */
 }
 
-.searchQuery {
-    width: 150px; /* Ukuran input lebih kecil */
-    height: 30px; /* Tinggi input lebih kecil */
-    font-size: 0.85rem; /* Ukuran font lebih kecil */
-    padding: 2px 8px; /* Padding lebih kecil */
+/* Hover pada item dropdown khusus navbar */
+.navbar-nav .dropdown-item:hover {
+    background-color: #495057 !important; /* Warna gelap saat dihover */
+    color: #ffcc00 !important; /* Warna teks saat dihover */
 }
 
-.searchForm button {
-    height: 30px; /* Tinggi tombol sesuai dengan input */
-    font-size: 0.85rem; /* Ukuran font lebih kecil */
-    padding: 0 10px; /* Padding horizontal */
-    background-color: transparent; /* Warna latar sesuai style navbar */
-    border: 1px solid white; /* Warna border */
-    color: white; /* Warna teks */
-    transition: background-color 0.3s, color 0.3s;
+/* Dropdown toggle khusus navbar */
+.navbar-nav .dropdown-toggle {
+    color: #ffffff !important; /* Warna teks pada toggle */
+    transition: all 0.3s ease !important; /* Animasi halus */
 }
 
-.searchForm button:hover {
-    background-color: white; /* Warna latar saat hover */
-    color: #000; /* Warna teks saat hover */
-}
-
-.property-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-.property-container {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-.property-container img {
-    max-width: 200px;
-    max-height: 150px;
-}
-.property-description {
-    text-align: center;
-    margin-top: 10px;
-}
-.property-description h5 {
-    font-size: 1.25rem;
+/* Hover pada dropdown toggle khusus navbar */
+.navbar-nav .dropdown-toggle:hover {
+    color: #ffcc00 !important; /* Warna teks saat dihover */
 }

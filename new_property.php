@@ -90,7 +90,7 @@ $result = $conn->query($query);
 
         <div class="row custom-row">
             <?php
-        $count = 0; // Inisialisasi counter untuk baris
+        $count = 0; // Inisialisasi counter untuk jumlah properti yang ditampilkan
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 // Memproses gambar properti

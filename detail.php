@@ -113,6 +113,9 @@ $images = isset($row['images']) && !empty($row['images'])
                     class="btn btn-success d-inline-flex align-items-center gap-2">
                     <i class="bi bi-whatsapp"></i> Hubungi via WhatsApp
                 </a>
+                <a href="javascript:history.back();" class="btn btn-secondary d-inline-flex align-items-center gap-2">
+                    <i class="bi bi-arrow-left"></i> Kembali
+                </a>
             </div>
 
             <!-- Bagikan ke Media Sosial -->

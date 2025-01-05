@@ -122,15 +122,15 @@ $images = isset($row['images']) && !empty($row['images'])
             <div class="share-section mt-4">
                 <p class="mb-2"><strong>Bagikan Properti Ini:</strong></p>
                 <div class="d-flex gap-3">
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode('https://yourwebsite.com/detail?id=' . $row['id']); ?>"
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode('https://mitrausahasyariah.my.id//detail?id=' . $row['id']); ?>"
                         target="_blank" class="btn btn-primary d-inline-flex align-items-center gap-2">
                         <i class="bi bi-facebook"></i> Facebook
                     </a>
-                    <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode('https://yourwebsite.com/detail?id=' . $row['id']); ?>&text=Properti%20Tersedia%20untuk%20Anda!"
+                    <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode('https://mitrausahasyariah.my.id//detail?id=' . $row['id']); ?>&text=Properti%20Tersedia%20untuk%20Anda!"
                         target="_blank" class="btn btn-info text-white d-inline-flex align-items-center gap-2">
                         <i class="bi bi-twitter"></i> Twitter
                     </a>
-                    <a href="https://api.whatsapp.com/send?text=<?php echo urlencode('Lihat properti ini: https://yourwebsite.com/detail?id=' . $row['id']); ?>"
+                    <a href="https://api.whatsapp.com/send?text=<?php echo urlencode('Lihat properti ini: https://mitrausahasyariah.my.id//detail?id=' . $row['id']); ?>"
                         target="_blank" class="btn btn-success d-inline-flex align-items-center gap-2">
                         <i class="bi bi-whatsapp"></i> WhatsApp
                     </a>

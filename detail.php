@@ -47,7 +47,8 @@ $images = isset($row['images']) && !empty($row['images'])
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
             <div class="container">
-                <a class="navbar-brand" href="index"><img src="assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">PT MITRA USAHA SYARIAH</a>
+                <a class="navbar-brand" href="index"><img src="assets/images/logo.png" alt="Logo" class="me-2"
+                        style="height: 40px;">PT MITRA USAHA SYARIAH</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -85,8 +86,8 @@ $images = isset($row['images']) && !empty($row['images'])
 
         <!-- Detail Properti -->
         <p class="card-text">
-                            <strong>Kategori:</strong>
-                            <?php 
+            <strong>Kategori:</strong>
+            <?php 
                             switch ($row['category']) {
                                 case '0': echo "Jual"; break;
                                 case '1': echo "Sewa"; break;
@@ -95,26 +96,45 @@ $images = isset($row['images']) && !empty($row['images'])
                                 default: echo "Unknown"; break;
                             }
                             ?>
-                        </p>
-        <p><strong>Properti Tersedia:</strong> <?php echo htmlspecialchars($row['status']); ?></p>
-        <p><strong>Tipe Rumah:</strong> <?php echo htmlspecialchars($row['house_type']); ?></p>
-        <p><strong>Luas Tanah:</strong> <?php echo htmlspecialchars($row['land_area']); ?> m<sup>2</sup></p>
-        <p><strong>Luas Bangunan:</strong> <?php echo htmlspecialchars($row['building_area']); ?> m<sup>2</sup></p>
-        <p><strong>Harga:</strong> Rp <?php echo number_format($row['price'], 0, ',', '.'); ?></p>
-        <p><strong>Deskripsi:</strong></p>
-        <p><?php echo nl2br(htmlspecialchars($row['description'])); ?></p>
-
-        <!-- Link WhatsApp -->
-        <p>
-            <strong>Ingin bertanya lebih lanjut tentang rumah ini?</strong>
-            <br>
-        <div class="d-flex gap-2 mt-3">
-            <a href="https://wa.me/+6289665550003 " target="_blank"
-                class="btn btn-success">
-                Hubungi via WhatsApp
-            </a>
-        </div>
         </p>
+        <div class="property-details">
+            <p><strong>Properti Tersedia:</strong> <?php echo htmlspecialchars($row['status']); ?></p>
+            <p><strong>Tipe Rumah:</strong> <?php echo htmlspecialchars($row['house_type']); ?></p>
+            <p><strong>Luas Tanah:</strong> <?php echo htmlspecialchars($row['land_area']); ?> m<sup>2</sup></p>
+            <p><strong>Luas Bangunan:</strong> <?php echo htmlspecialchars($row['building_area']); ?> m<sup>2</sup></p>
+            <p><strong>Harga:</strong> Rp <?php echo number_format($row['price'], 0, ',', '.'); ?></p>
+            <p><strong>Deskripsi:</strong></p>
+            <p><?php echo nl2br(htmlspecialchars($row['description'])); ?></p>
+
+            <!-- Link WhatsApp -->
+            <div class="contact-section mt-4">
+                <p class="mb-2"><strong>Ingin bertanya lebih lanjut tentang rumah ini?</strong></p>
+                <a href="https://wa.me/+6289665550003" target="_blank"
+                    class="btn btn-success d-inline-flex align-items-center gap-2">
+                    <i class="bi bi-whatsapp"></i> Hubungi via WhatsApp
+                </a>
+            </div>
+
+            <!-- Bagikan ke Media Sosial -->
+            <div class="share-section mt-4">
+                <p class="mb-2"><strong>Bagikan Properti Ini:</strong></p>
+                <div class="d-flex gap-3">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode('https://yourwebsite.com/detail?id=' . $row['id']); ?>"
+                        target="_blank" class="btn btn-primary d-inline-flex align-items-center gap-2">
+                        <i class="bi bi-facebook"></i> Facebook
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode('https://yourwebsite.com/detail?id=' . $row['id']); ?>&text=Properti%20Tersedia%20untuk%20Anda!"
+                        target="_blank" class="btn btn-info text-white d-inline-flex align-items-center gap-2">
+                        <i class="bi bi-twitter"></i> Twitter
+                    </a>
+                    <a href="https://api.whatsapp.com/send?text=<?php echo urlencode('Lihat properti ini: https://yourwebsite.com/detail?id=' . $row['id']); ?>"
+                        target="_blank" class="btn btn-success d-inline-flex align-items-center gap-2">
+                        <i class="bi bi-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- Footer -->

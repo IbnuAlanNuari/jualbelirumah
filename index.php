@@ -30,8 +30,11 @@ $result_best = $conn->query($sql_best);
                 <!-- Brand di sisi kiri -->
                 <a class="navbar-brand d-flex align-items-center" href="index">
                     <img src="assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
-                    <span class="fs-5">PT MITRA USAHA SYARIAH</span>
+                    <span class="fs-6 d-inline d-md-none">PT MITRA</span> <!-- Nama kecil untuk layar kecil -->
+                    <span class="fs-5 d-none d-md-inline">PT MITRA USAHA SYARIAH</span>
+                    <!-- Nama lengkap untuk layar besar -->
                 </a>
+
 
                 <!-- Toggler untuk layar kecil -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -64,15 +67,15 @@ $result_best = $conn->query($sql_best);
 
     <!-- Hero Section -->
     <section class="hero-section d-flex align-items-center" style="margin-top: 80px;">
-    <div class="container">
-        <div class="row align-items-center">
-            <!-- Gambar -->
-            <div class="col-md-6 order-2 order-md-1">
-                <img src="assets/images/display.jpg" alt="Hero Image" class="img-fluid rounded shadow">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Gambar -->
+                <div class="col-md-6 order-2 order-md-1">
+                    <img src="assets/images/display.jpg" alt="Hero Image" class="img-fluid rounded shadow">
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
     <!-- Daftar Properti -->

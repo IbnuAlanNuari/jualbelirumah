@@ -298,38 +298,38 @@ $result_best = $conn->query($sql_best);
                 </div>
             </section>
 
-            <<footer style="background-color: black; color: white; text-align: center; padding: 1rem;">
+            <footer style="background-color: black; color: white; text-align: center; padding: 1rem;">
                 <p>&copy; 2022 PT MITRA USAHA SYARIAH.</p>
-                </footer>
+            </footer>
 
-                <script src="js/script.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="js/script.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-                <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    const resizeCards = () => {
-                        const cards = document.querySelectorAll('.col-lg-4.col-md-6.col-sm-6.col-12');
-                        const screenWidth = window.innerWidth;
+            <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const resizeCards = () => {
+                    const cards = document.querySelectorAll('.col-lg-4.col-md-6.col-sm-6.col-12');
+                    const screenWidth = window.innerWidth;
 
-                        cards.forEach(card => {
-                            if (screenWidth <= 576) { // Untuk layar kecil (mobile)
-                                card.classList.remove('col-12'); // Hapus kelas full-width
-                                card.classList.add('col-6'); // Tambahkan kelas untuk setengah lebar
-                            } else {
-                                card.classList.remove('col-6'); // Hapus kelas untuk setengah lebar
-                                card.classList.add(
-                                    'col-12'); // Tambahkan kelas full-width untuk layar besar
-                            }
-                        });
-                    };
+                    cards.forEach(card => {
+                        if (screenWidth <= 576) { // Untuk layar kecil (mobile)
+                            card.classList.remove('col-12'); // Hapus kelas full-width
+                            card.classList.add('col-6'); // Tambahkan kelas untuk setengah lebar
+                        } else {
+                            card.classList.remove('col-6'); // Hapus kelas untuk setengah lebar
+                            card.classList.add(
+                                'col-12'); // Tambahkan kelas full-width untuk layar besar
+                        }
+                    });
+                };
 
-                    // Jalankan fungsi saat halaman dimuat
-                    resizeCards();
+                // Jalankan fungsi saat halaman dimuat
+                resizeCards();
 
-                    // Jalankan fungsi saat ukuran layar berubah
-                    window.addEventListener('resize', resizeCards);
-                });
-                </script>
+                // Jalankan fungsi saat ukuran layar berubah
+                window.addEventListener('resize', resizeCards);
+            });
+            </script>
 </body>
 
 </html>

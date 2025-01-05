@@ -21,37 +21,37 @@ $result_best = $conn->query($sql_best);
     <link rel="icon" href="assets/images/logo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="stile.css">
     <style>
-        .hero-section .col-md-6.order-1.order-md-2 {
-            margin-top: 50px; /* Atur jarak sesuai kebutuhan */
-        }
-        /* CSS tambahan untuk tampilan mobile */
-        @media (max-width: 768px) {
-        .navbar-nav .nav-link {
-            padding: 1rem;
-        }
-        .dropdown-menu {
-            position: static;
-            float: none;
-        }
-        }
+        @media (max-width: 576px) {
+    .col-6 {
+        max-width: 50%;
+        flex: 0 0 50%;
+    }
+}
     </style>
 </head>
 
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
-            <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="index">
+            <div class="container d-flex justify-content-between">
+                <!-- Brand di sisi kiri -->
+                <a class="navbar-brand d-flex align-items-center mx-auto" href="index">
                     <img src="assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
-                    <span class="fs-5">PT MITRA USAHA SYARIAH</span>
+                    <span class="fs-6 d-inline d-md-none">PT MITRA</span> <!-- Nama kecil untuk layar kecil -->
+                    <span class="fs-5 d-none d-md-inline">PT MITRA USAHA SYARIAH</span>
+                    <!-- Nama lengkap untuk layar besar -->
                 </a>
+                <!-- Toggler untuk layar kecil -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
+
+                <!-- Navigation Links -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
                         <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#properties" id="navbarDropdown" role="button"

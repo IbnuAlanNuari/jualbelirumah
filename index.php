@@ -70,7 +70,7 @@ $result_best = $conn->query($sql_best);
             </div>
         </nav>
     </header>
-
+<div>
     <!-- Hero Section -->
     <section class="hero-section d-flex align-items-center" style="margin-top: 100px; margin-bottom: 30px; height: auto;">
         <div class="container d-flex justify-content-center">
@@ -278,7 +278,7 @@ $result_best = $conn->query($sql_best);
                 </div>
             </div>
         </section>
-
+</div>
         
 
         <script src="js/script.js"></script>

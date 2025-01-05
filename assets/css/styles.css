@@ -186,38 +186,6 @@
 }
 
 
-/* Dropdown menu khusus navbar */
-.navbar-nav .dropdown-menu {
-    background-color: #343a40 !important; /* Warna gelap */
-    border: none !important; /* Menghapus border */
-    border-radius: 5px !important; /* Membuat sudut membulat */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important; /* Menambahkan bayangan */
-}
-
-/* Item dalam dropdown khusus navbar */
-.navbar-nav .dropdown-item {
-    color: #ffffff !important; /* Warna teks putih */
-    padding: 10px 20px !important; /* Padding untuk membuat dropdown lebih rapi */
-    transition: all 0.3s ease !important; /* Animasi halus pada hover */
-}
-
-/* Hover pada item dropdown khusus navbar */
-.navbar-nav .dropdown-item:hover {
-    background-color: #495057 !important; /* Warna gelap saat dihover */
-    color: #ffcc00 !important; /* Warna teks saat dihover */
-}
-
-/* Dropdown toggle khusus navbar */
-.navbar-nav .dropdown-toggle {
-    color: #ffffff !important; /* Warna teks pada toggle */
-    transition: all 0.3s ease !important; /* Animasi halus */
-}
-
-/* Hover pada dropdown toggle khusus navbar */
-.navbar-nav .dropdown-toggle:hover {
-    color: #ffcc00 !important; /* Warna teks saat dihover */
-}
-
 .custom-dropdown .dropdown-menu {
     background-color: #000; /* Warna hitam */
     color: #fff; /* Warna teks putih */

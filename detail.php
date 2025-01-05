@@ -147,7 +147,7 @@ $images = isset($row['images']) && !empty($row['images'])
                 </div>
             </div>
         </div>
-
+        
         <!-- Detail Properti -->
         <p class="card-text">
             <strong>Kategori:</strong>

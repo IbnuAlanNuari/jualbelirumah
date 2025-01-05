@@ -9,13 +9,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100 top-0">
             <div class="container">
-                <a class="navbar-brand" href="index"><img src="assets/images/logo.png" alt="Logo" class="me-2"
-                        style="height: 40px;">
-                    <span class="fs-5">PT MITRA USAHA SYARIAH</span></a>
+                <a class="navbar-brand d-flex align-items-center" href="best_property">
+                    <img src="assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
+                    <span class="fs-6 d-inline d-md-none">PT MITRA</span> <!-- Nama kecil untuk layar kecil -->
+                    <span class="fs-5 d-none d-md-inline">PT MITRA USAHA SYARIAH</span>
+                    <!-- Nama lengkap untuk layar besar -->
+                </a>
+                <!-- Toggler untuk layar kecil -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -24,8 +29,8 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#properties" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="new_property.php" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Property
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -50,7 +55,8 @@
                 <div class="col-md-6">
                     <h4>Hubungi Kami</h4>
                     <p class="contact-info">
-                        <strong>Email:</strong> <a href="mailto:ptmitrausahasyariah@gmail.com">ptmitrausahasyariah@gmail.com</a><br>
+                        <strong>Email:</strong> <a
+                            href="mailto:ptmitrausahasyariah@gmail.com">ptmitrausahasyariah@gmail.com</a><br>
                         <strong>Telepon:</strong> <a href="tel:+6289665550003">089665550003</a><br>
                         <strong>Alamat:</strong> Link Ciore Kwiste RT/RW 004/003 Kelurahan
                         Gerogol Kecamatan Gerogol Kota Cilegon

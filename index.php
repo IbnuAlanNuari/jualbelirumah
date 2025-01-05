@@ -35,7 +35,10 @@ $result_best = $conn->query($sql_best);
     .body {
         height: 100%;
         /* Membuat tinggi halaman penuh */
+        height: 100%;
+        /* Halaman penuh */
         margin: 0;
+        /* Hilangkan margin default */
         display: flex;
         flex-direction: column;
     }
@@ -47,7 +50,11 @@ $result_best = $conn->query($sql_best);
 
     .footer {
         flex-shrink: 0;
-        /* Footer tetap di bawah */
+        /* Pastikan footer tidak menyusut */
+        background-color: #000;
+        color: #fff;
+        text-align: center;
+        padding: 1rem 0;
     }
     </style>
 </head>
@@ -106,7 +113,7 @@ $result_best = $conn->query($sql_best);
 
     <!-- Daftar Properti -->
     <section id="properties" class="listing-properties py-5">
-        <div class="container">
+        < class="container">
             <h2 class="text-center mb-4">Daftar Properti</h2>
 
             <!-- Properti Baru -->
@@ -298,7 +305,8 @@ $result_best = $conn->query($sql_best);
                 </div>
             </section>
 
-            <footer style="background-color: black; color: white; text-align: center; padding: 1rem;">
+            <!-- Footer -->
+            <footer class="bg-dark text-white text-center py-3">
                 <p>&copy; 2022 PT MITRA USAHA SYARIAH.</p>
             </footer>
 

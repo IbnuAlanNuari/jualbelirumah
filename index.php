@@ -31,8 +31,8 @@ $result_best = $conn->query($sql_best);
     }
 
     /* Struktur dasar agar footer di bawah */
-    html,
-    body {
+    .html,
+    .body {
         height: 100%;
         /* Membuat tinggi halaman penuh */
         margin: 0;
@@ -40,12 +40,12 @@ $result_best = $conn->query($sql_best);
         flex-direction: column;
     }
 
-    main {
+    .main {
         flex: 1;
         /* Mengisi ruang kosong di antara header dan footer */
     }
 
-    footer {
+    .footer {
         flex-shrink: 0;
         /* Footer tetap di bawah */
     }

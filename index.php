@@ -27,7 +27,7 @@ $result_best = $conn->query($sql_best);
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
-            <div class="container d-flex justify-content-between align-items-center">
+            <div class="container d-flex justify-content-between">
                 <!-- Brand di sisi kiri -->
                 <a class="navbar-brand d-flex align-items-center mx-auto" href="index">
                     <img src="assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">

@@ -77,7 +77,7 @@ $result_best = $conn->query($sql_best);
         <div class="container">
             <div class="row align-items-center">
                 <!-- Gambar -->
-                <div class="align-items-center">
+                <div class="col-md-6 align-items-center">
                     <img src="assets/images/display.jpg" alt="Hero Image" class="img-fluid rounded shadow">
                 </div>
             </div>

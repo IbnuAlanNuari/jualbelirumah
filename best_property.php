@@ -57,12 +57,12 @@ if (!$result) {
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="new_property" class="nav-link">Property Terbaru</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="new_property.php" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Kategori
                             </a>
-                            <li class="nav-item"><a href="new_property" class="nav-link">Property Terbaru</a></li>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="best_property?category=0">Jual</a></li>
                                 <li><a class="dropdown-item" href="best_property?category=1">Sewa</a></li>

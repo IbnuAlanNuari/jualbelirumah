@@ -33,25 +33,20 @@ $result_best = $conn->query($sql_best);
 </head>
 
 <body>
-    <header>
+<header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
-            <div class="container d-flex justify-content-between">
-                <!-- Brand di sisi kiri -->
-                <a class="navbar-brand d-flex align-items-center mx-auto" href="index">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index">
                     <img src="assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
-                    <span class="fs-6 d-inline d-md-none">PT MITRA</span> <!-- Nama kecil untuk layar kecil -->
-                    <span class="fs-5 d-none d-md-inline">PT MITRA USAHA SYARIAH</span>
-                    <!-- Nama lengkap untuk layar besar -->
+                    <span class="fs-6 d-inline d-md-none">PT MITRA</span>
+                    <span class="fs-5">PT MITRA USAHA SYARIAH</span>
                 </a>
-                <!-- Toggler untuk layar kecil -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <!-- Navigation Links -->
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#properties" id="navbarDropdown" role="button"

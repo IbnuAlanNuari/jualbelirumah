@@ -129,7 +129,7 @@ if (isset($_GET['edit'])) {
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100 top-0">
             <div class="container d-flex justify-content-between align-items-center">
                 <!-- Brand Logo -->
-                <a class="navbar-brand d-flex align-items-center" href="index">
+                <a class="navbar-brand d-flex align-items-center" href="#">
                     <img src="../assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
                     <span class="fs-6 d-inline d-md-none">PT MITRA</span> <!-- Nama kecil untuk layar kecil -->
                     <span class="fs-5 d-none d-md-inline">PT MITRA USAHA SYARIAH</span>

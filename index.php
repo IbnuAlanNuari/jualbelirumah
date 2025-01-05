@@ -266,6 +266,7 @@ $result_best = $conn->query($sql_best);
     }
     ?>
             </div>
+            </div>
 
 
             <!-- Tentang Kami Section -->

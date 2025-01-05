@@ -21,7 +21,6 @@ $result_best = $conn->query($sql_best);
     <link rel="icon" href="assets/images/logo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/stile.css">
     <style>
     @media (max-width: 576px) {
         .col-6 {

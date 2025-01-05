@@ -78,7 +78,8 @@ $result_best = $conn->query($sql_best);
             <div class="row align-items-center">
                 <!-- Gambar -->
                 <div class="col-md-12 text-center">
-                    <img src="assets/images/display.jpg" alt="Hero Image" class="img-fluid rounded shadow">
+                    <img src="assets/images/display.jpg" alt="Hero Image" class="img-fluid rounded shadow"
+                        style="max-width: 50%; height: auto;">
                 </div>
             </div>
         </div>

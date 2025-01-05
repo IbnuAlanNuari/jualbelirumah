@@ -194,11 +194,11 @@ $images = isset($row['images']) && !empty($row['images'])
                         target="_blank" class="btn btn-primary d-inline-flex align-items-center gap-2">
                         <i class="bi bi-facebook"></i> Facebook
                     </a>
-                    <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode('https://mitrausahasyariah.my.id/detail?id=' . $row['id']); ?>&text=Properti%20Tersedia%20untuk%20Anda!"
+                    <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode('https://mitrausahasyariah.my.id/detail?id=' . $row['id']); ?>&text=<?php echo urlencode($row['title'] . ' - Properti Tersedia untuk Anda!'); ?>"
                         target="_blank" class="btn btn-info text-white d-inline-flex align-items-center gap-2">
                         <i class="bi bi-twitter"></i> Twitter
                     </a>
-                    <a href="https://api.whatsapp.com/send?text=<?php echo urlencode('Lihat properti ini: https://mitrausahasyariah.my.id/detail?id=' . $row['id']); ?>"
+                    <a href="https://api.whatsapp.com/send?text=<?php echo urlencode($row['title'] . ': https://mitrausahasyariah.my.id/detail?id=' . $row['id']); ?>"
                         target="_blank" class="btn btn-success d-inline-flex align-items-center gap-2">
                         <i class="bi bi-whatsapp"></i> WhatsApp
                     </a>

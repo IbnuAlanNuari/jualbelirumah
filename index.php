@@ -24,38 +24,44 @@ $result_best = $conn->query($sql_best);
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
-            <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="index">
-                    <img src="assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
-                    <span class="fs-5">PT MITRA USAHA SYARIAH</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#properties" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Property
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="new_property">Property Terbaru</a></li>
-                                <li><a class="dropdown-item" href="best_property">Property Terbaik</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a href="#about-us" class="nav-link">Tentang Kami</a></li>
-                        <li class="nav-item"><a href="contact" class="nav-link">Kontak</a></li>
-                        <li class="nav-item"><a href="admin/login.php" target="_blank" class="nav-link">Admin</a></li>
-                    </ul>
-                </div>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Brand di sisi kiri -->
+            <a class="navbar-brand d-flex align-items-center" href="index">
+                <img src="assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
+                <span class="fs-5">PT MITRA USAHA SYARIAH</span>
+            </a>
+
+            <!-- Toggler untuk layar kecil -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Links -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#properties" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Property
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="new_property">Property Terbaru</a></li>
+                            <li><a class="dropdown-item" href="best_property">Property Terbaik</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="#about-us" class="nav-link">Tentang Kami</a></li>
+                    <li class="nav-item"><a href="contact" class="nav-link">Kontak</a></li>
+                    <li class="nav-item"><a href="admin/login.php" target="_blank" class="nav-link">Admin</a></li>
+                </ul>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
+
 
     <!-- Hero Section -->
     <section class="hero-section d-flex align-items-center" style="height: 100vh; background-color: #f8f9fa;">

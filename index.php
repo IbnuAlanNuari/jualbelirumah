@@ -26,21 +26,21 @@ $result_best = $conn->query($sql_best);
 <body>
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
-        <div class="container d-flex justify-content-between align-items-center">
+        <div class="container">
             <!-- Brand di sisi kiri -->
             <a class="navbar-brand d-flex align-items-center" href="index">
                 <img src="assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
                 <span class="fs-5">PT MITRA USAHA SYARIAH</span>
             </a>
 
-            <!-- Toggler untuk layar kecil -->
+            <!-- Toggler -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <!-- Navigation Links -->
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-start" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
                     <li class="nav-item dropdown">
@@ -61,7 +61,6 @@ $result_best = $conn->query($sql_best);
         </div>
     </nav>
 </header>
-
 
     <!-- Hero Section -->
     <section class="hero-section d-flex align-items-center" style="height: 100vh; background-color: #f8f9fa;">

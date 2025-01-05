@@ -80,7 +80,7 @@ $images = isset($row['images']) && !empty($row['images'])
         <!-- Gambar Properti -->
         <div class="row">
             <div class="col-12">
-                <!-- Carousel -->
+                <!-- Carousel Utama -->
                 <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <?php
@@ -88,9 +88,12 @@ $images = isset($row['images']) && !empty($row['images'])
                     $activeClass = $index === 0 ? 'active' : '';
                     echo "
                         <div class='carousel-item $activeClass'>
-                            <img src='assets/images/" . htmlspecialchars(trim($image)) . "' class='d-block w-100 img-fluid fixed-size' alt='Properti' data-bs-toggle='modal' data-bs-target='#imageModal'>
-                        </div>
-                    ";
+                            <img src='assets/images/" . htmlspecialchars(trim($image)) . "' 
+                                 class='d-block w-100 img-fluid fixed-size' 
+                                 alt='Properti' 
+                                 data-bs-toggle='modal' 
+                                 data-bs-target='#imageModal'>";
+                    echo "</div>";
                 }
                 ?>
                     </div>
@@ -111,10 +114,10 @@ $images = isset($row['images']) && !empty($row['images'])
 
         <!-- Modal untuk Gambar -->
         <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content">
                     <div class="modal-body p-0 text-center">
-                        <!-- Carousel di dalam Modal -->
+                        <!-- Carousel Independen di dalam Modal -->
                         <div id="modalCarousel" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <?php
@@ -122,13 +125,14 @@ $images = isset($row['images']) && !empty($row['images'])
                             $activeClass = $index === 0 ? 'active' : '';
                             echo "
                                 <div class='carousel-item $activeClass'>
-                                    <img src='assets/images/" . htmlspecialchars(trim($image)) . "' class='img-fluid' alt='Properti'>
-                                </div>
-                            ";
+                                    <img src='assets/images/" . htmlspecialchars(trim($image)) . "' 
+                                         class='img-fluid' 
+                                         alt='Properti'>
+                                </div>";
                         }
                         ?>
                             </div>
-                            <!-- Navigasi Carousel -->
+                            <!-- Navigasi Carousel Modal -->
                             <button class="carousel-control-prev" type="button" data-bs-target="#modalCarousel"
                                 data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -147,7 +151,7 @@ $images = isset($row['images']) && !empty($row['images'])
                 </div>
             </div>
         </div>
-        
+
         <!-- Detail Properti -->
         <p class="card-text">
             <strong>Kategori:</strong>

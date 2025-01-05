@@ -39,7 +39,6 @@ $result_best = $conn->query($sql_best);
 </head>
 
 <body>
-    <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="index">
@@ -70,8 +69,6 @@ $result_best = $conn->query($sql_best);
                 </div>
             </div>
         </nav>
-    </header>
-
     <!-- Hero Section -->
     <section class="hero-section d-flex align-items-center" style="margin-top: 80px;">
         <div class="container">

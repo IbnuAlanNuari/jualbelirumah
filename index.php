@@ -69,7 +69,7 @@ $result_best = $conn->query($sql_best);
         <div class="container">
             <div class="row align-items-center">
                 <!-- Gambar -->
-                <div class="col-md-6 order-2 order-md-1">
+                <div class="col-md-6 order-2 order-md-1 align-items-center">
                     <img src="assets/images/display.jpg" alt="Hero Image" class="img-fluid rounded shadow">
                 </div>
             </div>
@@ -275,6 +275,29 @@ $result_best = $conn->query($sql_best);
             </footer>
             <script src="js/script.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+            <script>document.addEventListener('DOMContentLoaded', function () {
+    const resizeCards = () => {
+        const cards = document.querySelectorAll('.col-lg-4.col-md-6.col-sm-6.col-12');
+        const screenWidth = window.innerWidth;
+
+        cards.forEach(card => {
+            if (screenWidth <= 576) { // Untuk layar kecil (mobile)
+                card.classList.remove('col-12'); // Hapus kelas full-width
+                card.classList.add('col-6'); // Tambahkan kelas untuk setengah lebar
+            } else {
+                card.classList.remove('col-6'); // Hapus kelas untuk setengah lebar
+                card.classList.add('col-12'); // Tambahkan kelas full-width untuk layar besar
+            }
+        });
+    };
+
+    // Jalankan fungsi saat halaman dimuat
+    resizeCards();
+
+    // Jalankan fungsi saat ukuran layar berubah
+    window.addEventListener('resize', resizeCards);
+});
+</script>
 </body>
 
 </html>

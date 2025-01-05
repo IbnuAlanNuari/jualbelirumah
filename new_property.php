@@ -88,8 +88,11 @@ $result = $conn->query($query);
     <div class="container py-5 mt-5" style="margin-top: 7rem;">
         <h2 class="text-center mb-4">Properti Terbaru</h2>
 
-        <div class="row custom-row">
-            <?php
+        <div class="container py-5 mt-5" style="margin-top: 7rem;">
+            <h2 class="text-center mb-4">Properti Terbaru</h2>
+
+            <div class="row custom-row">
+                <?php
         $count = 0; // Inisialisasi counter untuk jumlah properti yang ditampilkan
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
@@ -97,7 +100,7 @@ $result = $conn->query($query);
                 $images = isset($row['images']) && !empty($row['images']) ? explode(',', $row['images']) : ['default.jpg'];
 
                 // Menampilkan kartu properti
-                echo "<div class='col-md-6 mb-4 custom-card'>"; // Menambahkan kelas custom-card
+                echo "<div class='col-md-6 mb-4 custom-card'>"; // Menambahkan kelas custom-card untuk dua kartu per baris di ponsel
                 echo "<div class='card'>"; // Kartu properti
 
                 if (count($images) > 1) {
@@ -162,7 +165,6 @@ $result = $conn->query($query);
                 echo "</div>"; // Tutup col-md-6
 
                 $count++; // Menambah counter setiap kali kartu ditampilkan
-                if ($count >= 4) break; // Batasi hanya dua baris (4 kartu)
             }
         } else {
             echo "<div class='text-center'>";
@@ -171,8 +173,9 @@ $result = $conn->query($query);
             echo "</div>";
         }
         ?>
+            </div>
         </div>
-    </div>
+
     </div>
 
     <!-- Masukkan Bootstrap JS jika diperlukan -->

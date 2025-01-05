@@ -185,21 +185,37 @@
     background-color: #343a40; /* Warna latar belakang dropdown (sesuaikan dengan tema) */
 }
 
-/* Menampilkan dua kartu per baris pada layar kecil (max-width: 768px) */
+/* Pada layar ponsel (max-width: 768px), hanya dua kartu per baris */
 @media (max-width: 768px) {
     .custom-row {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
     }
-    
+
+    /* Dua kartu per baris pada layar kecil */
     .custom-card {
-        flex: 0 0 48%; /* Membuat kartu mengambil 48% dari lebar container */
+        flex: 0 0 48%; /* 48% lebar container untuk dua kartu per baris */
         margin-bottom: 1rem; /* Jarak antar kartu */
     }
-    
-    /* Membatasi jumlah baris menjadi dua pada layar kecil */
-    .custom-row:nth-of-type(n+3) {
-        display: none; /* Menyembunyikan baris ke-3 dan seterusnya */
+
+    /* Menyembunyikan baris ke-3 dan seterusnya */
+    .custom-row > .col-md-6:nth-of-type(n+5) {
+        display: none;
+    }
+}
+
+/* Pada layar besar (lebih dari 768px), tampilkan 3 kartu per baris */
+@media (min-width: 768px) {
+    .custom-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    /* Tiga kartu per baris pada layar lebih besar */
+    .custom-card {
+        flex: 0 0 30%; /* 30% lebar container untuk tiga kartu per baris */
+        margin-bottom: 1rem; /* Jarak antar kartu */
     }
 }

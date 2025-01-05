@@ -184,16 +184,3 @@
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Menambahkan sedikit bayangan pada dropdown */
     background-color: #343a40; /* Warna latar belakang dropdown (sesuaikan dengan tema) */
 }
-
-/* Mengubah item di dalam dropdown menjadi lebih kecil */
-.custom-dropdown .dropdown-item {
-    font-size: 14px; /* Ukuran font lebih kecil */
-    padding: 8px 10px; /* Padding yang lebih kecil agar terlihat lebih compact */
-    text-align: center; /* Menyusun teks pada setiap item dropdown di tengah */
-}
-
-/* Hover effect untuk item dropdown */
-.custom-dropdown .dropdown-item:hover {
-    background-color: #495057; /* Menambahkan warna hover pada item */
-    color: #fff; /* Mengubah warna teks saat hover */
-}

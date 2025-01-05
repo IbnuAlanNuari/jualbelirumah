@@ -113,7 +113,7 @@ $result_best = $conn->query($sql_best);
 
     <!-- Daftar Properti -->
     <section id="properties" class="listing-properties py-5">
-        < class="container">
+        <div class="container">
             <h2 class="text-center mb-4">Daftar Properti</h2>
 
             <!-- Properti Baru -->

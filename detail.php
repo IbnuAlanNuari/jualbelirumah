@@ -177,7 +177,7 @@ $images = isset($row['images']) && !empty($row['images'])
             <!-- Link WhatsApp -->
             <div class="contact-section mt-4">
                 <p class="mb-2"><strong>Ingin bertanya lebih lanjut tentang rumah ini?</strong></p>
-                <a href="https://wa.me/+6289665550003?text=Halo%2C%20Saya%20tertarik%20dengan%20properti%20<?php echo urlencode($row['title']); ?>"
+                <a href="https://wa.me/+6289665550003?text=Halo%2C%20Saya%20tertarik%20dengan%20properti%20<?php echo urlencode($row['title']); ?>.%20Berikut%20link%20detail%20properti%20tersebut%3A%20<?php echo urlencode('http://mitrausahasyariah.my.id/detail.php?id=' . $row['id']); ?>"
                     target="_blank" class="btn btn-success d-inline-flex align-items-center gap-2">
                     <i class="bi bi-whatsapp"></i> Hubungi via WhatsApp
                 </a>

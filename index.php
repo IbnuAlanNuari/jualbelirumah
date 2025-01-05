@@ -20,24 +20,30 @@ $result_best = $conn->query($sql_best);
     <title>PT MITRA USAHA SYARIAH</title>
     <link rel="icon" href="assets/images/logo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="..assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <style>
-        @media (max-width: 576px) {
-    .col-6 {
-        max-width: 50%;
-        flex: 0 0 50%;
-    }
-}
+        .hero-section .col-md-6.order-1.order-md-2 {
+            margin-top: 50px; /* Atur jarak sesuai kebutuhan */
+        }
+        /* CSS tambahan untuk tampilan mobile */
+        @media (max-width: 768px) {
+        .navbar-nav .nav-link {
+            padding: 1rem;
+        }
+        .dropdown-menu {
+            position: static;
+            float: none;
+        }
+        }
     </style>
 </head>
 
 <body>
-<header>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="index">
                     <img src="assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
-                    <span class="fs-6 d-inline d-md-none">PT MITRA</span>
                     <span class="fs-5">PT MITRA USAHA SYARIAH</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"

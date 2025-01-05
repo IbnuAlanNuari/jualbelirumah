@@ -79,18 +79,50 @@ $images = isset($row['images']) && !empty($row['images'])
 
         <!-- Gambar Properti -->
         <div class="row">
-            <?php
-        foreach ($images as $index => $image) {
-            echo "<div class='col-md-4 mb-4'>";
-            echo "<img src='assets/images/" . htmlspecialchars(trim($image)) . "' class='img-fluid img-thumbnail' alt='Properti'>";
-            echo "</div>";
+            <div class="col-12">
+                <!-- Carousel -->
+                <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <?php
+                foreach ($images as $index => $image) {
+                    // Tambahkan item carousel dengan kondisi aktif untuk gambar pertama
+                    $activeClass = $index === 0 ? 'active' : '';
+                    echo "
+                        <div class='carousel-item $activeClass'>
+                            <img src='assets/images/" . htmlspecialchars(trim($image)) . "' class='d-block w-100 img-fluid' alt='Properti' data-bs-toggle='modal' data-bs-target='#imageModal' onclick='openModal($index)'>
+                        </div>
+                    ";
+                }
+                ?>
+                    </div>
+                    <!-- Navigasi Carousel -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#imageCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#imageCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
 
-            // Tambahkan div.row baru setiap 3 gambar
-            if (($index + 1) % 3 === 0 && $index + 1 < count($images)) {
-                echo "</div><div class='row'>";
-            }
-        }
-        ?>
+        <!-- Modal untuk Gambar -->
+        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <!-- Konten Modal -->
+                        <img id="modalImage" src="" class="img-fluid" alt="Properti">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Detail Properti -->
@@ -155,7 +187,20 @@ $images = isset($row['images']) && !empty($row['images'])
     </footer>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    // JavaScript untuk menampilkan gambar di modal
+    const images = <?php echo json_encode($images); ?>;
+
+    function openModal(index) {
+        const modalImage = document.getElementById('modalImage');
+        modalImage.src = `assets/images/${images[index].trim()}`;
+    }
+    </script>
+
+    <!-- Tambahkan Bootstrap CSS dan JS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
 </body>
 

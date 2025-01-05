@@ -51,21 +51,19 @@ $result_best = $conn->query($sql_best);
 
                 <!-- Navigation Links -->
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Property
-                            </a>
-                            <ul class="dropdown-menu custom-dropdown" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="new_property">Property Terbaru</a></li>
-                                <li><a class="dropdown-item" href="best_property">Property Terbaik</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a href="#about-us" class="nav-link">Tentang Kami</a></li>
-                        <li class="nav-item"><a href="contact" class="nav-link">Kontak</a></li>
-                        <li class="nav-item"><a href="admin/login.php" target="_blank" class="nav-link">Admin</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Property
+                        </a>
+                        <ul class="dropdown-menu custom-dropdown" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="new_property">Property Terbaru</a></li>
+                            <li><a class="dropdown-item" href="best_property">Property Terbaik</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="#about-us" class="nav-link">Tentang Kami</a></li>
+                    <li class="nav-item"><a href="contact" class="nav-link">Kontak</a></li>
+                    <li class="nav-item"><a href="admin/login.php" target="_blank" class="nav-link">Admin</a></li>
                     </ul>
                 </div>
             </div>

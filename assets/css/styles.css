@@ -1,5 +1,4 @@
 /* Gaya Umum untuk Semua Halaman */
-
 .body {
     padding-top: 70px; /* Sesuaikan dengan tinggi navbar */
     font-family: Arial, sans-serif; /* Mengubah font menjadi Arial */
@@ -16,24 +15,7 @@
     object-fit: cover; /* Memastikan gambar menutupi area card tanpa distorsi */
 }
 
-/* Menambahkan penyesuaian ukuran font untuk Navbar */
-.navbar-brand {
-    font-size: 20px; /* Ukuran font lebih besar pada navbar brand */
-}
-
-/* Gaya Login dan Elemen Lainnya */
-
-/* Form Login Styling */
-.login-container {
-    max-width: 400px;
-    margin: 100px auto;
-    padding: 30px;
-    border-radius: 8px;
-    background-color: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Navbar brand Styling */
+/* Navbar Branding */
 .navbar-brand {
     font-size: 24px;
     font-weight: bold;
@@ -51,7 +33,7 @@
     }
 }
 
-/* Form Field Styling */
+/* Form Styling */
 .form-control:focus {
     border-color: #6c63ff;
     box-shadow: 0 0 8px rgba(108, 99, 255, 0.4);
@@ -74,8 +56,6 @@
 }
 
 /* Kontak - Gaya untuk Halaman Kontak Kami */
-
-/* Informasi Kontak */
 .contact-info {
     font-size: 18px;
 }
@@ -89,7 +69,6 @@
     text-decoration: underline;
 }
 
-/* Ikon Sosial Media */
 .social-icons a {
     margin: 0 10px;
     color: #25D366;
@@ -100,7 +79,6 @@
     color: #128C7E;
 }
 
-/* Formulir Kontak */
 .contact-us form .form-control {
     margin-bottom: 15px;
 }
@@ -118,8 +96,8 @@
 /* Carousel Controls */
 .carousel-control-prev-icon, 
 .carousel-control-next-icon {
-    background-color: rgba(0, 0, 0, 0.5); /* Warna latar belakang tombol */
-    border-radius: 50%; /* Membuat tombol menjadi lingkaran */
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
     width: 40px;
     height: 40px;
 }
@@ -138,10 +116,9 @@
     font-weight: bold;
 }
 
-/* Tambahkan hover efek */
 .carousel-control-prev-icon:hover, 
 .carousel-control-next-icon:hover {
-    background-color: rgba(0, 0, 0, 0.7); /* Warna lebih gelap saat hover */
+    background-color: rgba(0, 0, 0, 0.7);
     transition: background-color 0.3s ease;
 }
 
@@ -149,21 +126,14 @@
 .navbar {
     position: sticky;
     top: 0;
-    z-index: 1050; /* Sesuaikan nilai z-index sesuai kebutuhan */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Opsional untuk efek bayangan */
+    z-index: 1050;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .navbar .container {
     display: flex;
     justify-content: center; /* Pusatkan elemen di tengah secara horizontal */
     align-items: center; /* Pusatkan elemen di tengah secara vertikal */
-}
-
-.navbar-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
 }
 
 .navbar-nav {
@@ -185,16 +155,22 @@
     color: #ffff00; /* Warna kuning saat hover */
 }
 
-
-.custom-dropdown .dropdown-menu {
-    background-color: #000; /* Warna hitam */
-    color: #fff; /* Warna teks putih */
+/* Styling untuk dropdown pada navbar */
+.navbar-nav .dropdown-menu {
+    background-color: #333; /* Setel latar belakang dropdown menjadi gelap */
+    border: none; /* Hapus border */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan */
 }
 
-.custom-dropdown .dropdown-menu a.dropdown-item {
-    color: #fff; /* Warna teks putih */
+/* Warna teks item dropdown */
+.navbar-nav .dropdown-menu a {
+    color: white; /* Teks berwarna putih */
+    font-size: 16px;
 }
 
-.custom-dropdown .dropdown-menu a.dropdown-item:hover {
-    background-color: #444; /* Warna abu-abu gelap untuk hover */
+/* Efek hover pada item dropdown */
+.navbar-nav .dropdown-menu a:hover {
+    background-color: #555; /* Warna latar belakang lebih gelap saat hover */
+    color: yellow; /* Warna teks kuning saat hover */
 }
+

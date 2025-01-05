@@ -54,7 +54,7 @@ $result_best = $conn->query($sql_best);
                     <ul class="navbar-nav">
                         <li class="nav-item"><a href="index" class="nav-link">Home</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#properties" id="navbarDropdown" role="button"
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Property
                             </a>

@@ -81,7 +81,7 @@ $images = isset($row['images']) && !empty($row['images'])
         <div class="row">
             <div class="col-12">
                 <!-- Carousel Utama -->
-                <div id="imageCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div id="imageCarousel" class="carousel slide" data-bs-ride="false">
                     <div class="carousel-inner">
                         <?php
                 foreach ($images as $index => $image) {
@@ -118,7 +118,7 @@ $images = isset($row['images']) && !empty($row['images'])
                 <div class="modal-content">
                     <div class="modal-body p-0 text-center">
                         <!-- Carousel Independen di dalam Modal -->
-                        <div id="modalCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div id="modalCarousel" class="carousel slide" data-bs-ride="false">
                             <div class="carousel-inner">
                                 <?php
                         foreach ($images as $index => $image) {

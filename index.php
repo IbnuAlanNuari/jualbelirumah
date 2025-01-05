@@ -63,7 +63,7 @@ $result_best = $conn->query($sql_best);
 </header>
 
     <!-- Hero Section -->
-    <section class="hero-section d-flex align-items-center" style="height: 100vh; background-color: #f8f9fa;">
+    <section class="hero-section d-flex align-items-center">
         <div class="container">
             <div class="row align-items-center">
                 <!-- Gambar -->

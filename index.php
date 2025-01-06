@@ -9,6 +9,10 @@ $result_new = $conn->query($sql_new);
 // Query untuk mengambil data properti terbaik berdasarkan harga terendah, dibatasi 3 item
 $sql_best = 'SELECT * FROM properties WHERE price > 0 ORDER BY price ASC LIMIT 10';
 $result_best = $conn->query($sql_best);
+
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
 ?>
 
 <!DOCTYPE html>
@@ -17,10 +21,16 @@ $result_best = $conn->query($sql_best);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>PT MITRA USAHA SYARIAH</title>
     <link rel="icon" href="assets/images/logo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
+    <script src="script.js?v=<?php echo time(); ?>"></script>
+
     <style>
     @media (max-width: 576px) {
         .col-6 {
@@ -288,23 +298,22 @@ $result_best = $conn->query($sql_best);
 
     <script>
     const resizeCards = () => {
-    const cards = document.querySelectorAll('.col-lg-4.col-md-6.col-sm-6.col-12');
-    const screenWidth = window.innerWidth;
+        const cards = document.querySelectorAll('.col-lg-4.col-md-6.col-sm-6.col-12');
+        const screenWidth = window.innerWidth;
 
-    cards.forEach(card => {
-        if (screenWidth <= 576) { // Untuk layar kecil (mobile)
-            card.classList.remove('col-12');
-            card.classList.add('col-6');
-        } else {
-            card.classList.remove('col-6');
-            card.classList.add('col-12');
-        }
-    });
-};
+        cards.forEach(card => {
+            if (screenWidth <= 576) { // Untuk layar kecil (mobile)
+                card.classList.remove('col-12');
+                card.classList.add('col-6');
+            } else {
+                card.classList.remove('col-6');
+                card.classList.add('col-12');
+            }
+        });
+    };
 
-resizeCards();
-window.addEventListener('resize', resizeCards);
-
+    resizeCards();
+    window.addEventListener('resize', resizeCards);
     </script>
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3">

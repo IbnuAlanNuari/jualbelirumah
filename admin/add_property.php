@@ -97,6 +97,10 @@ if (isset($_GET['edit'])) {
     $result = $conn->query($sql);
     $property = $result->fetch_assoc();
 }
+
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
 ?>
 
 
@@ -111,6 +115,13 @@ if (isset($_GET['edit'])) {
     <link rel="icon" href="../assets/images/logo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
+<script src="script.js?v=<?php echo time(); ?>"></script>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+
 </head>
 
 <<body>

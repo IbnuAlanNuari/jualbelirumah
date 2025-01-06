@@ -31,3 +31,9 @@ RewriteCond %{HTTP_REFERER} !^http://(www\.)?example\.com/ [NC]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^([^/]+)/?$ $1.php [L]
+
+<FilesMatch "\.(html|php)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+</FilesMatch>

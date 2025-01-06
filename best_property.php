@@ -84,19 +84,20 @@ if (!$result) {
         </nav>
     </header>
 
-    <div class="container py-5 mt-5">
-        <h2 class="text-center mb-4">Properti Terbaik</h2>
-        <div class="row">
-            <?php
+    <div class="container py-5 mt-5" style="margin-top: 7rem;">
+            <h2 class="text-center mb-4">Properti Terbaru</h2>
+
+            <div class="row custom-row">
+                <?php
+        $count = 0; // Inisialisasi counter untuk jumlah properti yang ditampilkan
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 // Memproses gambar properti
                 $images = isset($row['images']) && !empty($row['images']) ? explode(',', $row['images']) : ['default.jpg'];
-                $images = array_slice($images, 0, 2); // Ambil maksimal 2 gambar
 
                 // Menampilkan kartu properti
-                echo "<div class='col-lg-4 col-md-6 col-sm-6 mb-4'>"; // Atur kolom untuk responsif
-                echo "<div class='card shadow-sm border-light'>"; // Kartu properti
+                echo "<div class='col-md-6 mb-4 custom-card'>"; // Menambahkan kelas custom-card untuk dua kartu per baris di ponsel
+                echo "<div class='card'>"; // Kartu properti
 
                 if (count($images) > 1) {
                     echo "<div id='carousel-" . $row['id'] . "' class='carousel slide' data-bs-ride='carousel'>";
@@ -124,10 +125,12 @@ if (!$result) {
 
                 // Informasi properti
                 echo "<div class='card-body'>";
-                echo "<h5 class='card-title'>" . htmlspecialchars($row['title']) . "</h5>";
-                echo "<p class='card-text'><strong>Status:</strong> " . htmlspecialchars($row['status']) . "</p>";
+                echo "<h5 class='card-title'>" . htmlspecialchars($row['title']) . "</h5>"; // Judul properti
 
-                // Menampilkan kategori properti
+                // Menampilkan status properti
+                echo "<p class='card-text'><strong>Status:</strong> " . htmlspecialchars($row['status']) . "</p>"; // Status properti
+
+                // Menampilkan kategori
                 echo "<p class='card-text'><strong>Kategori:</strong> ";
                 switch ($row['category']) {
                     case '0':
@@ -152,20 +155,23 @@ if (!$result) {
                 echo "<p class='card-text'><strong>Harga:</strong> Rp " . number_format($row['price'], 0, ',', '.') . "</p>";
 
                 // Tombol lihat detail
-                echo "<a href='detail.php?id=" . $row['id'] . "' class='btn btn-success w-100'>Lihat Detail</a>";
+                echo "<a href='detail?id=" . $row['id'] . "' class='btn btn-seccess w-100'>Lihat Detail</a>";
                 echo "</div>";
                 echo "</div>";
-                echo "</div>"; // Tutup col-lg-4
+                echo "</div>"; // Tutup col-md-6
+
+                $count++; // Menambah counter setiap kali kartu ditampilkan
             }
         } else {
             echo "<div class='text-center'>";
             echo "<p>Tidak ada properti yang tersedia.</p>";
-            echo "<a href='best_property' class='btn btn-success'>Kembali</a>"; // Tombol kembali
+            echo "<a href='new_property' class='btn btn-primary'>Kembali</a>"; // Tombol kembali
             echo "</div>";
         }
         ?>
+            </div>
         </div>
-    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

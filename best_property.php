@@ -86,17 +86,16 @@ if (!$result) {
 
     <div class="container py-5 mt-5">
         <h2 class="text-center mb-4">Properti Terbaik</h2>
-        <div class="row custom-row">
+        <div class="row">
             <?php
         if ($result->num_rows > 0) {
-            $counter = 0; // Inisialisasi counter
             while ($row = $result->fetch_assoc()) {
                 // Memproses gambar properti
                 $images = isset($row['images']) && !empty($row['images']) ? explode(',', $row['images']) : ['default.jpg'];
                 $images = array_slice($images, 0, 2); // Ambil maksimal 2 gambar
 
                 // Menampilkan kartu properti
-                echo "<div class='col-md-4 col-sm-6 mb-4 custom-card'>"; // Kartu properti
+                echo "<div class='col-lg-4 col-md-6 col-sm-6 mb-4'>"; // Atur kolom untuk responsif
                 echo "<div class='card shadow-sm border-light'>"; // Kartu properti
 
                 if (count($images) > 1) {
@@ -156,16 +155,7 @@ if (!$result) {
                 echo "<a href='detail.php?id=" . $row['id'] . "' class='btn btn-success w-100'>Lihat Detail</a>";
                 echo "</div>";
                 echo "</div>";
-                echo "</div>"; // Tutup col-md-4
-
-                $counter++; // Increment counter
-                if ($counter % 2 == 0) {
-                    echo "</div><div class='row custom-row'>"; // Mulai baris baru setiap 2 kartu
-                }
-            }
-            // Menutup baris terakhir jika jumlah kartu tidak genap
-            if ($counter % 2 != 0) {
-                echo "</div>";
+                echo "</div>"; // Tutup col-lg-4
             }
         } else {
             echo "<div class='text-center'>";
@@ -176,7 +166,6 @@ if (!$result) {
         ?>
         </div>
     </div>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

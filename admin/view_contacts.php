@@ -1,6 +1,13 @@
 <?php
 include '../db.php'; // Koneksi ke database
 
+// Tentukan jumlah pesan per halaman
+$messages_per_page = 5;
+
+// Tentukan halaman saat ini, default ke halaman 1 jika tidak ada
+$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+$start_from = ($page - 1) * $messages_per_page;
+
 // Cek apakah ada permintaan untuk menghapus pesan
 if (isset($_GET['delete'])) {
     $id = intval($_GET['delete']); // Mengambil ID dari URL dan mengkonversinya menjadi integer
@@ -15,9 +22,15 @@ if (isset($_GET['delete'])) {
     }
 }
 
-// Ambil semua pesan dari database
-$sql = "SELECT * FROM contact_form ORDER BY date_sent DESC";
+// Ambil semua pesan dari database dengan pagination
+$sql = "SELECT * FROM contact_form ORDER BY date_sent DESC LIMIT $start_from, $messages_per_page";
 $result = $conn->query($sql);
+
+// Ambil total jumlah pesan untuk menghitung total halaman
+$total_sql = "SELECT COUNT(*) FROM contact_form";
+$total_result = $conn->query($total_sql);
+$total_rows = $total_result->fetch_row()[0];
+$total_pages = ceil($total_rows / $messages_per_page);
 ?>
 
 <!DOCTYPE html>
@@ -36,22 +49,18 @@ $result = $conn->query($sql);
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100 top-0">
             <div class="container d-flex justify-content-between align-items-center">
-                <!-- Brand Logo di sebelah kiri -->
                 <a class="navbar-brand d-flex align-items-center" href="#">
                     <img src="../assets/images/logo.png" alt="Logo" class="me-2" style="height: 40px;">
-                    <span class="fs-6 d-inline d-md-none">PT MITRA</span> <!-- Nama kecil untuk layar kecil -->
                     <span class="fs-5 d-none d-md-inline">PT MITRA USAHA SYARIAH</span>
-                    <!-- Nama lengkap untuk layar besar -->
                 </a>
-                <!-- Toggler untuk layar kecil -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <!-- Navbar Links di sebelah kanan -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a href="add_property.php" class="nav-link">Dashboard</a></li>
+                        <li class="nav-item"><a href="add_property.php" class="nav-link">Tambah Properti</a></li>
+                        <li class="nav-item"><a href="table.php" class="nav-link">Tabel</a></li>
                         <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
                     </ul>
                 </div>
@@ -92,6 +101,27 @@ $result = $conn->query($sql);
             ?>
             </tbody>
         </table>
+
+        <!-- Pagination -->
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                <li class="page-item <?php if ($page <= 1) echo 'disabled'; ?>">
+                    <a class="page-link" href="view_contacts.php?page=1" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <?php
+                for ($i = 1; $i <= $total_pages; $i++) {
+                    echo "<li class='page-item " . ($i == $page ? 'active' : '') . "'><a class='page-link' href='view_contacts.php?page=$i'>$i</a></li>";
+                }
+                ?>
+                <li class="page-item <?php if ($page >= $total_pages) echo 'disabled'; ?>">
+                    <a class="page-link" href="view_contacts.php?page=<?php echo $total_pages; ?>" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
 
     <footer class="bg-dark text-white text-center py-3">

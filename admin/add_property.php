@@ -7,7 +7,7 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
-include '../db.php'; // Menyertakan koneksi ke database
+include '../db.php'; // Koneksi ke database
 
 // Inisialisasi pesan notifikasi
 $message = "";
@@ -16,38 +16,36 @@ $message = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['property_title'];
     $description = $_POST['property_description'];
-    $price = str_replace('.', '', $_POST['property_price']); // Hapus titik dari format input
+    $price = str_replace('.', '', $_POST['property_price']);
     $location = $_POST['property_location'];
-    $category = $_POST['property_category']; // Mengambil kategori dari form
-    $status = $_POST['property_status']; // Status properti
-    $house_type = $_POST['property_house_type']; // Tipe rumah
-    $land_area = str_replace(',', '.', $_POST['property_land_area']); // Konversi koma ke titik
-    $building_area = str_replace(',', '.', $_POST['property_building_area']); // Konversi koma ke titik
+    $category = $_POST['property_category'];
+    $status = $_POST['property_status'];
+    $house_type = $_POST['property_house_type'];
+    $land_area = str_replace(',', '.', $_POST['property_land_area']);
+    $building_area = str_replace(',', '.', $_POST['property_building_area']);
 
-
-    // Menyimpan data properti baru ke dalam database
-    if (isset($_POST['property_id']) && $_POST['property_id'] != '') {
+    if (!empty($_POST['property_id'])) {
         // Update properti yang sudah ada
         $property_id = $_POST['property_id'];
         $sql = "UPDATE properties SET title = ?, description = ?, price = ?, location = ?, category = ?, status = ?, house_type = ?, land_area = ?, building_area = ? WHERE id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ssdsdssddi", $title, $description, $price, $location, $category, $status, $house_type, $land_area, $building_area, $property_id);
     } else {
-        // Menambahkan properti baru
+        // Tambahkan properti baru
         $sql = "INSERT INTO properties (title, description, price, location, category, status, house_type, land_area, building_area, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ssdsdssdd", $title, $description, $price, $location, $category, $status, $house_type, $land_area, $building_area);
     }
 
     if ($stmt->execute()) {
-        // Jika ada gambar, proses penguploadannya
+        $property_id = isset($property_id) ? $property_id : $stmt->insert_id;
+
+        // Proses upload gambar jika ada
         if (!empty($_FILES['property_images']['name'][0])) {
-            $property_id = isset($property_id) ? $property_id : $stmt->insert_id;
             $uploaded_images = [];
             $upload_dir = '../assets/images/';
 
             foreach ($_FILES['property_images']['tmp_name'] as $index => $tmp_name) {
-                // Validasi file yang diunggah (ukuran, tipe file)
                 $file_size = $_FILES['property_images']['size'][$index];
                 $file_type = mime_content_type($tmp_name);
                 $allowed_types = ['image/jpeg', 'image/png', 'image/gif'];
@@ -61,10 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
 
             if (!empty($uploaded_images)) {
-                // Gabungkan nama file dengan koma sebagai pemisah
                 $images = implode(',', $uploaded_images);
-
-                // Update properti dengan nama gambar yang baru
                 $sql_images = "UPDATE properties SET images = ? WHERE id = ?";
                 $stmt_images = $conn->prepare($sql_images);
                 $stmt_images->bind_param("si", $images, $property_id);
@@ -72,22 +67,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
 
-        // Redirect ke halaman properti setelah berhasil
-        header('Location: add_property.php');
+        $_SESSION['message'] = "Properti berhasil disimpan.";
+        header('Location: table.php');
         exit;
     } else {
-        echo "Error: " . $stmt->error;
+        $message = "Error: " . $stmt->error;
     }
 }
 
-// Simpan pesan dalam session
-if (!empty($message)) {
-    $_SESSION['message'] = $message;
-    header("Location: add_property.php");
-    exit();
-}
-
-// Proses untuk menghapus properti
+// Hapus properti
 if (isset($_GET['delete'])) {
     $id = intval($_GET['delete']);
     $sql = "DELETE FROM properties WHERE id = $id";
@@ -98,11 +86,11 @@ if (isset($_GET['delete'])) {
         $_SESSION['message'] = "Error: " . $conn->error;
     }
 
-    header("Location: add_property.php");
+    header("Location: table.php");
     exit();
 }
 
-// Ambil data properti jika ingin mengedit
+// Ambil data properti untuk di-edit
 if (isset($_GET['edit'])) {
     $id = intval($_GET['edit']);
     $sql = "SELECT * FROM properties WHERE id = $id";
@@ -110,6 +98,7 @@ if (isset($_GET['edit'])) {
     $property = $result->fetch_assoc();
 }
 ?>
+
 
 
 <!DOCTYPE html>
@@ -143,8 +132,9 @@ if (isset($_GET['edit'])) {
                 <!-- Navbar Links -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a href="view_contacts.php" class="nav-link">Ulasan</a></li>
                         <li class="nav-item"><a href="#tambah" class="nav-link">Tambah Properti</a></li>
+                        <li class="nav-item"><a href="table.php" class="nav-link">Tabel</a></li>
+                        <li class="nav-item"><a href="view_contacts.php" class="nav-link">Ulasan</a></li>
                         <li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>
                     </ul>
                 </div>
@@ -159,85 +149,6 @@ if (isset($_GET['edit'])) {
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         <?php endif; ?>
-    </div>
-
-    <!-- Daftar Properti -->
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header text-center bg-dark text-white">
-                        <h5>Daftar Properti</h5>
-                    </div>
-                    <div class="card-body">
-                        <!-- Responsive Table -->
-                        <div class="table-responsive">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Judul</th>
-                                        <th>Tipe Rumah</th>
-                                        <th>Luas Tanah</th>
-                                        <th>Luas Bangunan</th>
-                                        <th>Harga</th>
-                                        <th>Lokasi</th>
-                                        <th>Status</th>
-                                        <th>Kategori</th>
-                                        <th>Gambar</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    $result = $conn->query("SELECT id, title, house_type, land_area, building_area, price, location, status, category, images FROM properties ORDER BY created_at DESC");
-                                    while ($row = $result->fetch_assoc()) {
-                                        echo "<tr>";
-                                        echo "<td>" . $row['id'] . "</td>";
-                                        echo "<td>" . $row['title'] . "</td>";
-                                        echo "<td>" . $row['house_type'] . "</td>";
-                                        echo "<td>" . $row['land_area'] . "</td>";
-                                        echo "<td>" . $row['building_area'] . "</td>";
-                                        echo "<td>Rp " . number_format((int)$row['price'], 0, ',', '.') . "</td>";
-                                        echo "<td>" . $row['location'] . "</td>";
-                                        echo "<td>" . htmlspecialchars($row['status']) . "</td>";
-
-                                        // Display category
-                                        switch ($row['category']) {
-                                            case '0': echo "<td>Jual</td>"; break;
-                                            case '1': echo "<td>Sewa</td>"; break;
-                                            case '2': echo "<td>Sold Out</td>"; break;
-                                            case '3': echo "<td>Take Over</td>"; break;
-                                            default: echo "<td>Unknown</td>"; break;
-                                        }
-
-                                        // Display images
-                                        echo "<td>";
-                                        $images = explode(',', $row['images']);
-                                        if (count($images) > 0 && !empty($images[0])) {
-                                            foreach ($images as $image) {
-                                                echo "<img src='../assets/images/" . trim($image) . "' width='50' class='me-1' alt='Image'>";
-                                            }
-                                        } else {
-                                            echo "<img src='../assets/images/default.jpg' width='50' alt='No Image'>";
-                                        }
-                                        echo "</td>";
-
-                                        // Action buttons
-                                        echo "<td>
-                                                <a href='add_property.php?edit=" . $row['id'] . "' class='btn btn-warning btn-sm'>Edit</a>
-                                                <a href='add_property.php?delete=" . $row['id'] . "' class='btn btn-danger btn-sm'>Delete</a>
-                                            </td>";
-                                        echo "</tr>";
-                                    }
-                                    ?>
-                                </tbody>
-                            </table>
-                        </div> <!-- End of Responsive Table -->
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- Formulir untuk Menambahkan atau Mengedit Properti -->

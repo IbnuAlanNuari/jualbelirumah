@@ -3,11 +3,11 @@
 include 'db.php';
 
 // Query untuk mengambil data properti terbaru, dibatasi 3 item
-$sql_new = 'SELECT * FROM properties WHERE created_at >= NOW() - INTERVAL 30 DAY ORDER BY created_at DESC LIMIT 3';
+$sql_new = 'SELECT * FROM properties WHERE created_at >= NOW() - INTERVAL 30 DAY ORDER BY created_at DESC LIMIT 10';
 $result_new = $conn->query($sql_new);
 
 // Query untuk mengambil data properti terbaik berdasarkan harga terendah, dibatasi 3 item
-$sql_best = 'SELECT * FROM properties WHERE price > 0 ORDER BY price ASC LIMIT 3';
+$sql_best = 'SELECT * FROM properties WHERE price > 0 ORDER BY price ASC LIMIT 10';
 $result_best = $conn->query($sql_best);
 ?>
 
@@ -287,29 +287,24 @@ $result_best = $conn->query($sql_best);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const resizeCards = () => {
-            const cards = document.querySelectorAll('.col-lg-4.col-md-6.col-sm-6.col-12');
-            const screenWidth = window.innerWidth;
+    const resizeCards = () => {
+    const cards = document.querySelectorAll('.col-lg-4.col-md-6.col-sm-6.col-12');
+    const screenWidth = window.innerWidth;
 
-            cards.forEach(card => {
-                if (screenWidth <= 576) { // Untuk layar kecil (mobile)
-                    card.classList.remove('col-12'); // Hapus kelas full-width
-                    card.classList.add('col-6'); // Tambahkan kelas untuk setengah lebar
-                } else {
-                    card.classList.remove('col-6'); // Hapus kelas untuk setengah lebar
-                    card.classList.add(
-                        'col-12'); // Tambahkan kelas full-width untuk layar besar
-                }
-            });
-        };
-
-        // Jalankan fungsi saat halaman dimuat
-        resizeCards();
-
-        // Jalankan fungsi saat ukuran layar berubah
-        window.addEventListener('resize', resizeCards);
+    cards.forEach(card => {
+        if (screenWidth <= 576) { // Untuk layar kecil (mobile)
+            card.classList.remove('col-12');
+            card.classList.add('col-6');
+        } else {
+            card.classList.remove('col-6');
+            card.classList.add('col-12');
+        }
     });
+};
+
+resizeCards();
+window.addEventListener('resize', resizeCards);
+
     </script>
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3">

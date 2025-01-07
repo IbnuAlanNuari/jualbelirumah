@@ -325,7 +325,17 @@ header("Pragma: no-cache");
         console.log('Cache cleared!');
     }
     </script>
-    
+    <script>
+    if (navigator.userAgent.match(/mobile/i)) {
+        window.addEventListener('load', () => {
+            const oneHour = 60 * 60 * 1000; // 1 jam dalam milidetik
+            setTimeout(() => {
+                alert("Halaman akan dimuat ulang untuk pembaruan.");
+                window.location.reload(true); // Memuat ulang halaman dari server
+            }, oneHour);
+        });
+    }
+    </script>
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3">
         <p>&copy; 2022 PT MITRA USAHA SYARIAH.</p>

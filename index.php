@@ -29,9 +29,8 @@ $cacheBuster = floor(time() / 3600);
     <title>PT MITRA USAHA SYARIAH</title>
     <link rel="icon" href="assets/images/logo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/styles.css?v=1.0.1"> <!-- Versi file -->
-    <script src="script.js?v=1.0.1"></script>
+    <link rel="stylesheet" href="assets/css/styles.css?v= $cacheBuster ?>"> <!-- Menggunakan cache buster per jam -->
+    <script src="script.js?v=<?= $cacheBuster ?>"></script>
 
     <style>
     @media (max-width: 576px) {
@@ -330,11 +329,11 @@ $cacheBuster = floor(time() / 3600);
     <script>
     if (navigator.userAgent.match(/mobile/i)) {
         window.addEventListener('load', () => {
-            const fiveMinutes = 5 * 60 * 1000; // 5 menit dalam milidetik
+            const oneHour = 60 * 60 * 1000; // 1 jam dalam milidetik
             setTimeout(() => {
                 alert("Halaman akan dimuat ulang untuk pembaruan.");
                 window.location.reload(true); // Memuat ulang halaman dari server
-            }, fiveMinutes);
+            }, oneHour);
         });
     }
     </script>

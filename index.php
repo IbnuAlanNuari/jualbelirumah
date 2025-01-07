@@ -13,6 +13,8 @@ $result_best = $conn->query($sql_best);
 header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
 header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
+
+$cacheBuster = floor(time() / 3600);
 ?>
 
 <!DOCTYPE html>
@@ -328,14 +330,15 @@ header("Pragma: no-cache");
     <script>
     if (navigator.userAgent.match(/mobile/i)) {
         window.addEventListener('load', () => {
-            const oneHour = 60 * 60 * 1000; // 1 jam dalam milidetik
+            const fiveMinutes = 5 * 60 * 1000; // 5 menit dalam milidetik
             setTimeout(() => {
                 alert("Halaman akan dimuat ulang untuk pembaruan.");
                 window.location.reload(true); // Memuat ulang halaman dari server
-            }, oneHour);
+            }, fiveMinutes);
         });
     }
     </script>
+
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3">
         <p>&copy; 2022 PT MITRA USAHA SYARIAH.</p>

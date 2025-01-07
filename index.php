@@ -325,6 +325,13 @@ header("Pragma: no-cache");
         console.log('Cache cleared!');
     }
     </script>
+    <script>
+    if (navigator.userAgent.match(/mobile/i)) {
+        window.addEventListener('load', () => {
+            window.location.reload(true); // Force reload dari server
+        });
+    }
+    </script>
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3">
         <p>&copy; 2022 PT MITRA USAHA SYARIAH.</p>

@@ -155,7 +155,7 @@ if (!$result) {
                 echo "<p class='card-text'><strong>Harga:</strong> Rp " . number_format($row['price'], 0, ',', '.') . "</p>";
 
                 // Tombol lihat detail
-                echo "<a href='detail?id=" . $row['id'] . "' class='btn btn-seccess w-100'>Lihat Detail</a>";
+                echo "<a href='detail?id=" . $row['id'] . "' class='btn btn-success w-100'>Lihat Detail</a>";
                 echo "</div>";
                 echo "</div>";
                 echo "</div>"; // Tutup col-md-6

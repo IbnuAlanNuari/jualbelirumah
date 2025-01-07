@@ -28,8 +28,8 @@ header("Pragma: no-cache");
     <link rel="icon" href="assets/images/logo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
-    <script src="script.js?v=<?php echo time(); ?>"></script>
+    <link rel="stylesheet" href="assets/css/styles.css?v=1.0.1"> <!-- Versi file -->
+    <script src="script.js?v=1.0.1"></script>
 
     <style>
     @media (max-width: 576px) {
@@ -314,6 +314,16 @@ header("Pragma: no-cache");
 
     resizeCards();
     window.addEventListener('resize', resizeCards);
+    </script>
+    <script>
+    if ('caches' in window) {
+        caches.keys().then((names) => {
+            names.forEach((name) => {
+                caches.delete(name);
+            });
+        });
+        console.log('Cache cleared!');
+    }
     </script>
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3">
